@@ -9,6 +9,16 @@
     "angular": "1.2.x",
     "angular-route": "1.2.x",
     "angular-loader": "1.2.x",
-    "angular-mocks": "~1.2.15"
+    "angular-mocks": "~1.2.15",
+    "angular-resource": "~1.2.15",
+    "angular-sanitize": "~1.2.15",
+    "jquery": "1.x",
+    "bootstrap": "3.x",
+    "animate.css": "3.x",
+    "ngInfiniteScroll": "1.x",
+    "angular-deckgrid": "0.x"
+  },
+  "resolutions": {
+    "jquery": "1.x"
   }
 }

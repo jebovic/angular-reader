@@ -1,0 +1,15 @@
+.border-radius(@radius: '6px') {
+    @rad: unit(@radius,px);
+    border-radius: @rad;
+    -moz-border-radius: @rad;
+    -webkit-border-radius: @rad;
+}
+.border-top-radius(@radius: '6px') {
+    @rad: unit(@radius,px);
+    border-top-left-radius: @rad;
+    border-top-right-radius: @rad;
+    -moz-border-top-left-radius: @rad;
+    -moz-border-top-right-radius: @rad;
+    -webkit-border-top-left-radius: @rad;
+    -webkit-border-top-right-radius: @rad;
+}
