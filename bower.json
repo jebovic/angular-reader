@@ -16,9 +16,7 @@
     "bootstrap": "3.x",
     "animate.css": "3.x",
     "ngInfiniteScroll": "1.x",
-    "angular-deckgrid": "0.x"
-  },
-  "resolutions": {
-    "jquery": "1.x"
+    "angular-deckgrid": "0.x",
+    "Font-Awesome": "4.x"
   }
 }

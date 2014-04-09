@@ -8,7 +8,14 @@ angular.module('readerApp.services', ['ngResource']).
   value('version', '0.1')
   .factory('Storie', ['$resource',
     function($resource){
-      return $resource('//api.reader.loc/stories/:limit', {}, {
-        query: {method:'GET', params:{limit:10}, isArray:true}
+      return $resource('//api.reader.loc/stories', {limit:'@limit', sites: '@sites'}, {
+        query: {method:'GET', params:{limit:10, sites:[]}},
+        random: {url:'//api.reader.loc/stories/random', method:'GET',params:{limit:10, sites:[]}}
       });
-    }]);
+    }])
+    .factory('Site', ['$resource',
+        function($resource){
+            return $resource('//api.reader.loc/sites', {}, {
+                query: {method:'GET', params:{}}
+            });
+        }]);

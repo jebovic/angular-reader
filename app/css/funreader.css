@@ -1,8 +1,19 @@
 @import url(http://fonts.googleapis.com/css?family=Ubuntu:400,700);
 body {
-  background-color: #373737;
+  background-color: #eeeeee;
   font-family: 'Ubuntu', sans-serif;
   font-size: 14px;
+}
+/* Layout */
+#loadMore i {
+  margin-right: 5px;
+  margin-left: 5px;
+}
+hr {
+  margin-top: 10px;
+  margin-bottom: 10px;
+  border: 0;
+  border-top: 1px solid #d5d5d5;
 }
 /* Grid system */
 .deckgrid[deckgrid]::before {

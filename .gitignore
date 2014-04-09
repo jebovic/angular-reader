@@ -3,6 +3,7 @@ app/vendor/*
 !.gitkeep
 node_modules/
 bower_components/
+npm-debug.log
 tmp
 .DS_Store
 .idea

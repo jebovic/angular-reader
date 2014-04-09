@@ -18,6 +18,10 @@
   -webkit-border-top-left-radius: 6px;
   -webkit-border-top-right-radius: 6px;
 }
+.story .image {
+  padding: 10px;
+  text-align: center;
+}
 .story .content {
   padding: 10px;
 }
