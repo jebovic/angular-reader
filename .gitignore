@@ -3,6 +3,7 @@ app/vendor/*
 !.gitkeep
 node_modules/
 bower_components/
+build-chrome/
 npm-debug.log
 tmp
 .DS_Store
