@@ -11,7 +11,8 @@ angular.module('readerApp', [
   'readerApp.controllers',
   'infinite-scroll'
 ]).
-config(['$routeProvider', function($routeProvider) {
+config(['$routeProvider', '$compileProvider', function($routeProvider, $compileProvider) {
   $routeProvider.when('/random', {templateUrl: 'partials/random.html', controller: 'RandomController'});
   $routeProvider.otherwise({redirectTo: '/random'});
+  $compileProvider.imgSrcSanitizationWhitelist(/^\s*(https?|chrome-extension):/);
 }]);

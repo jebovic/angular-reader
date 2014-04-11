@@ -6,12 +6,13 @@
         </div>
     </div>
     <hr/>
-    <div class="row">
-        <div class="col-xs-4" ng-repeat="site in sites">
-            <button class="btn btn-default btn-block" ng-click="toggleSite(site)" ng-class="{'btn-primary':activeSites.indexOf(site) != -1}">{{site.title}}</button>
-        </div>
+    <div class="btn-group btn-group-sm">
+        <button ng-repeat="site in sites" class="btn btn-default" ng-click="toggleSite(site)" ng-class="{'btn-primary':activeSites.indexOf(site) != -1}">{{site.title}}</button>
     </div>
     <hr/>
+    <div class="text-center" style="padding: 30px;" ng-class="{hide:stories.length > 0}">
+        <img ng-src="/img/preloader2.gif" />
+    </div>
     <div infinite-scroll="loadMore()" infinite-scroll-immediate-check="false">
         <div ng-repeat="story in stories">
             <div class="story fadeInUp" style="background-color: #{{ story.site.color }};" ng-class="{animated:story.toAnimate}">
@@ -19,7 +20,7 @@
                     <!--<img ng-src="//api.reader.loc/uploads/logos/{{ story.site.logo_path }}" alt="{{ story.site.title }}"/>-->
                     {{ story.site.title }}
                 </div>
-                <div class="image" ng-if="story.image.length > 0"><img ng-src="//api.reader.loc/uploads/images/{{story.image}}" alt=""/></div>
+                <div class="image" ng-if="story.image.length > 0"><img ng-src="http://api.reader.loc/uploads/images/{{story.image}}" alt=""/></div>
                 <div class="content">
                     <div id="storyContent{{ story.id }}" class="text">
                         <p ng-bind-html="story.text"></p>
