@@ -1,0 +1,17 @@
+<div class="container">
+    <ng-include src="templates.header.url"></ng-include>
+    <ng-include src="templates.menuItems.url"></ng-include>
+    <hr/>
+    <ng-include src="templates.menuSites.url"></ng-include>
+    <hr/>
+    <div class="text-center" style="padding: 30px;" ng-class="{hide:stories.length > 0}">
+        <img ng-src="/img/loader.gif" height="128" width="128" />
+    </div>
+    <div infinite-scroll="loadMore()" infinite-scroll-immediate-check="false">
+        <div ng-repeat="story in stories" ng-init="story.toAnimate=true">
+            <ng-include src="templates.storyListItem.url"></ng-include>
+        </div>
+    </div>
+    <hr/>
+    <button id="loadMore" class="btn btn-block btn-primary" ng-click="loadMore()" ng-disabled="loading" ng-class="{loader:loading}"><i class="fa fa-spinner fa-spin" ng-class="{hide:!loading}"></i>Load more<i class="fa fa-caret-down"></i></button>
+</div>

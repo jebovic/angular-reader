@@ -4,6 +4,7 @@ app/vendor/*
 node_modules/
 bower_components/
 build-chrome/
+build-webapp/
 npm-debug.log
 tmp
 .DS_Store

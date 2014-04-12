@@ -1,9 +1,7 @@
-@import url(http://fonts.googleapis.com/css?family=Ubuntu:400,700);
 body {
-  background-color: #eeeeee;
-  font-family: 'Ubuntu', sans-serif;
   font-size: 14px;
   min-width: 550px;
+  background-color: #eeeeee;
 }
 /* Layout */
 #loadMore i {
@@ -15,18 +13,4 @@ hr {
   margin-bottom: 10px;
   border: 0;
   border-top: 1px solid #d5d5d5;
-}
-/* Grid system */
-.deckgrid[deckgrid]::before {
-  /* Specifies that the grid should have a maximum of 4 columns. Each column will have the classes 'column' and 'column-1-4' */
-  content: '3 .col-xs-12.col-sm-6.col-md-4';
-  font-size: 0;
-  /* See https://github.com/akoenig/angular-deckgrid/issues/14#issuecomment-35728861 */
-  visibility: hidden;
-}
-.deckgrid .column {
-  float: left;
-}
-.deckgrid .column-1-4 {
-  width: 25%;
 }

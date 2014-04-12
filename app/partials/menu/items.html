@@ -1,0 +1,5 @@
+<div class="row">
+    <div class="col-xs-3" ng-repeat="(value,text) in limitButtons" tooltip="{{ text }}">
+        <button class="btn btn-default btn-block btn-xs" ng-click="reload(value)" ng-disabled="limit==value" ng-class="{'btn-primary':limit==value}"><i class="fa fa-list"></i>&nbsp;{{text}}</button>
+    </div>
+</div>

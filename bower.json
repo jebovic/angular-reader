@@ -12,11 +12,15 @@
     "angular-mocks": "~1.2.15",
     "angular-resource": "~1.2.15",
     "angular-sanitize": "~1.2.15",
+    "angular-bootstrap": "0.x",
     "jquery": "1.x",
     "bootstrap": "3.x",
     "animate.css": "3.x",
     "ngInfiniteScroll": "1.x",
     "angular-deckgrid": "0.x",
     "Font-Awesome": "4.x"
+  },
+  "resolutions": {
+    "jquery": "1.x"
   }
 }

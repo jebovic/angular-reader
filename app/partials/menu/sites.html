@@ -1,0 +1,5 @@
+<div class="btn-group btn-group-justified">
+    <div class="btn-group" ng-repeat="site in sites">
+        <button class="btn btn-default" ng-click="toggleSite(site)" ng-class="{'btn-primary':activeSites.indexOf(site) != -1}"><i class="fa fa-filter"></i>&nbsp;{{site.title}}</button>
+    </div>
+</div>

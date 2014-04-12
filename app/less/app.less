@@ -1,12 +1,10 @@
 @import "variables.less";
 @import "functions.less";
-@import url(http://fonts.googleapis.com/css?family=Ubuntu:400,700);
 
 body {
-    background-color: @bgColor;
-    font-family: 'Ubuntu', sans-serif;
     font-size: @fontSize;
     min-width: 550px;
+    background-color: @bgColor;
 }
 
 /* Layout */
@@ -21,21 +19,4 @@ hr {
     margin-bottom: 10px;
     border: 0;
     border-top: 1px solid darken(@bgColor, 10%);
-}
-
-
-/* Grid system */
-.deckgrid[deckgrid]::before {
-    /* Specifies that the grid should have a maximum of 4 columns. Each column will have the classes 'column' and 'column-1-4' */
-    content: '3 .col-xs-12.col-sm-6.col-md-4';
-    font-size: 0; /* See https://github.com/akoenig/angular-deckgrid/issues/14#issuecomment-35728861 */
-    visibility: hidden;
-}
-
-.deckgrid .column {
-    float: left;
-}
-
-.deckgrid .column-1-4 {
-    width: 25%;
 }

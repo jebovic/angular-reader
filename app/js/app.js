@@ -9,10 +9,11 @@ angular.module('readerApp', [
   'readerApp.services',
   'readerApp.directives',
   'readerApp.controllers',
-  'infinite-scroll'
+  'infinite-scroll',
+  'ui.bootstrap'
 ]).
 config(['$routeProvider', '$compileProvider', function($routeProvider, $compileProvider) {
-  $routeProvider.when('/random', {templateUrl: 'partials/random.html', controller: 'RandomController'});
+  $routeProvider.when('/random', {templateUrl: 'partials/views/random.html', controller: 'RandomController'});
   $routeProvider.otherwise({redirectTo: '/random'});
   $compileProvider.imgSrcSanitizationWhitelist(/^\s*(https?|chrome-extension):/);
 }]);

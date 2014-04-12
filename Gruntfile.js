@@ -6,7 +6,7 @@ module.exports = function (grunt) {
     grunt.initConfig({
         pkg: grunt.file.readJSON('package.json'),
         less: {
-            development: {
+            main: {
                 options: {
                     paths: ["app/css","app/less"]
                 },
@@ -14,51 +14,81 @@ module.exports = function (grunt) {
                     'app/css/<%= pkg.name %>.css': 'app/less/app.less',
                     'app/css/<%= pkg.name %>-theme.css': 'app/less/theme.less'
                 }
-            },
-            production: {
-                options: {
-                    paths: ["app/css","app/less"],
-                    cleancss: true
-                },
+            }
+        },
+        copy: {
+            main: {
+                files: [{
+                    cwd: 'app/',
+                    expand: true,
+                    src: [
+                        "*.html",
+                        "*.json",
+                        "img/*",
+                        "partials/**/*.html",
+                        "vendor/bootstrap/dist/css/bootstrap.min.css",
+                        "vendor/animate.css/animate.min.css",
+                        "vendor/Font-Awesome/css/font-awesome.min.css",
+                        "vendor/Font-Awesome/fonts/*"
+                    ],
+                    dest: "build-webapp/"
+                }]
+            }
+        },
+        uglify: {
+            js: {
                 files: {
-                    'app/css/<%= pkg.name %>.css': 'app/less/app.less',
-                    'app/css/<%= pkg.name %>-theme.css': 'app/less/theme.less'
+                    'build-webapp/js/<%= pkg.name %>.min.js': [
+                        "app/vendor/jquery/dist/jquery.js",
+                        "app/vendor/bootstrap/dist/js/bootstrap.min.js",
+                        "app/vendor/angular/angular.min.js",
+                        "app/vendor/angular-route/angular-route.min.js",
+                        "app/vendor/angular-resource/angular-resource.min.js",
+                        "app/vendor/angular-sanitize/angular-sanitize.min.js",
+                        "app/vendor/ngInfiniteScroll/ng-infinite-scroll.js",
+                        "app/vendor/angular-bootstrap/ui-bootstrap.min.js",
+                        "app/vendor/angular-bootstrap/ui-bootstrap-tpls.min.js",
+                        "app/js/*.js"
+                    ]
                 }
             }
         },
-        'chrome-extension': {
+        cssmin : {
+            css:{
+                src: 'app/css/*.css',
+                dest: 'build-webapp/css/<%= pkg.name %>.min.css'
+            }
+        },
+        fileblocks: {
             options: {
-                name: "funreader",
-                version: "0.0.1",
-                id: "00000000000000000000000000000000",
-                chrome: "",
-                clean: true,
-                certDir: 'cert',
-                buildDir: 'build-chrome',
-                resources: [
-                    "app/js/**",
-                    "app/css/*.css",
-                    "app/img/**",
-                    "app/partials/**",
-                    "app/*.html",
-                    "app/*.json",
-                    "app/vendor/bootstrap/dist/css/bootstrap.min.css",
-                    "app/vendor/bootstrap/dist/css/bootstrap-theme.min.css",
-                    "app/vendor/animate.css/animate.min.css",
-                    "app/vendor/Font-Awesome/css/font-awesome.min.css",
-                    "app/vendor/Font-Awesome/fonts/*",
-                    "app/vendor/jquery/dist/jquery.js",
-                    "app/vendor/angular/angular.min.js",
-                    "app/vendor/angular-route/angular-route.min.js",
-                    "app/vendor/angular-resource/angular-resource.min.js",
-                    "app/vendor/angular-sanitize/angular-sanitize.min.js",
-                    "app/vendor/ngInfiniteScroll/ng-infinite-scroll.js"
-                ]
+                removeFiles: true
+            },
+            dist: {
+                src: 'build-webapp/index.html',
+                blocks: {
+                    'prodStyles' : {
+                        src: [
+                            'css/*.css'
+                            ],
+                        cwd: 'build-webapp'
+                    },
+                    'prodScripts' : {
+                        src: [
+                            'js/*.js'
+                        ],
+                        cwd: 'build-webapp'
+                    }
+                }
             }
         }
     });
 
     grunt.loadNpmTasks('grunt-contrib-less');
     grunt.loadNpmTasks('grunt-chrome-compile');
+    grunt.loadNpmTasks('grunt-contrib-uglify');
+    grunt.loadNpmTasks('grunt-contrib-copy');
+    grunt.loadNpmTasks('grunt-contrib-cssmin');
+    grunt.loadNpmTasks('grunt-file-blocks');
+    grunt.registerTask('build-webapp', ['copy:main','less', 'uglify:js', 'cssmin:css','fileblocks']);
 
 }
