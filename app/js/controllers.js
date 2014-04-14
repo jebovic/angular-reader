@@ -50,10 +50,10 @@ angular.module('readerApp.controllers', [])
         };
         $scope.loadStories = function () {
             var siteIds = [];
+            angular.forEach($scope.activeSites, function(value, key){
+                siteIds.push(value.id);
+            });
             Storie.random({limit: $scope.limit, sites: siteIds.join(',')}, function (response) {
-                angular.forEach($scope.stories, function (story, key) {
-                    story.toAnimate = false;
-                });
                 angular.forEach(response.stories, function (story, key) {
                     story.toAnimate = false;
                     $scope.stories.push(story);

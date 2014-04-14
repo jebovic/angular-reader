@@ -1,6 +1,6 @@
 <div class="story fadeInUp" style="background-color: #{{ story.site.color }};" ng-class="{animated:story.toAnimate}">
     <div class="header" style="color: #{{ story.site.color }};">
-        <img ng-src="http://api.reader.loc/uploads/logos/{{ story.site.logo_path }}" alt="{{ story.site.title }}"/>
+        <img ng-if="story.site.logo_path.length > 0" ng-src="http://api.reader.loc/uploads/logos/{{ story.site.logo_path }}" alt="{{ story.site.title }}"/>
         {{ story.site.title }}
     </div>
     <div class="image" ng-if="story.image.length > 0"><img ng-src="http://api.reader.loc/uploads/images/{{story.image}}" alt=""/></div>
