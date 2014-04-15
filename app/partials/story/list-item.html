@@ -1,10 +1,9 @@
-<div class="story fadeInUp" style="background-color: #{{ story.site.color }};" ng-class="{animated:story.toAnimate}">
-    <div class="header" style="color: #{{ story.site.color }};">
-        <img ng-if="story.site.logo_path.length > 0" ng-src="http://api.reader.loc/uploads/logos/{{ story.site.logo_path }}" alt="{{ story.site.title }}"/>
-        {{ story.site.title }}
+<div class="story fadeInUp panel" ng-class="{animated:story.toAnimate}">
+    <div class="panel-heading">
+        <i class="fa" ng-class="isRead(story.unread)" style="color: #{{story.site.color}};"></i> &nbsp;{{ story.site.title }}
     </div>
     <div class="image" ng-if="story.image.length > 0"><img ng-src="http://api.reader.loc/uploads/images/{{story.image}}" alt=""/></div>
-    <div class="content">
+    <div class="panel-body">
         <div id="storyContent{{ story.id }}" class="text">
             <p ng-bind-html="story.text"></p>
         </div>

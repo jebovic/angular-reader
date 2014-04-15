@@ -1,23 +1,80 @@
 @import "variables.less";
 @import "functions.less";
 
+body {
+    color: @fontColor;
+    background-color: @bgColor;
+    font-size: @fontSize;
+    min-width: 450px;
+    padding-bottom: 50px;
+}
+::selection {
+    background: @primary;
+    color: #fff;
+}
+
+/* Header */
+#logo {
+    padding: 10px 20px;
+    color: @primaryActive;
+    float: left;
+}
+
+/* Settings */
+#settings {
+    .settingsContent {
+        background-color: #ffffff;
+        padding: 10px;
+        margin: 10px 0;
+        .border-radius(4px);
+    }
+}
+
+/* Buttons */
+.btn-default {
+    background-color: @gray;
+    border-color: @gray;
+    color: #fff;
+}
+
+.btn-default:hover, .btn-default:focus, .btn-default:active, .btn-default.active, .open .dropdown-toggle.btn-default {
+    background-color: @grayDark;
+    border-color: @grayDark;
+    color: #fff;
+}
+.btn-primary, .btn-primary[disabled] {
+    background-color: @primary;
+    border-color: @primary;
+    color: #fff;
+}
+
+.btn-primary:hover, .btn-primary:focus, .btn-primary:active, .btn-primary.active, .open .dropdown-toggle.btn-primary {
+    background-color: @primaryActive;
+    border-color: @primaryActive;
+    color: #fff;
+}
+
+/* Stories */
 .story {
-    background-color: #373737;
-    color: #ffffff;
-    .border-radius(6px);
+    background-color: #fff;
+    .border-radius(4px);
     margin: 10px 0;
-    .header {
-        background-color: #fff;
-        font-weight: bold;
-        font-size: 1.5em;
-        padding: 5px 10px;
-        .border-top-radius(6px);
+    border: none;
+    box-shadow: none;
+    .panel-heading {
+        border-color: #eff2f7;
+        font-size: 13px;
+        font-weight: 400;
+        background: @grayLight;
+        text-transform: uppercase;
+        padding: 10px;
+        .border-top-radius(4px);
     }
     .image {
         padding: 10px;
         text-align: center;
     }
-    .content {
+    .panel-body {
         padding: 10px;
         .decoration {
             font-weight: bold;

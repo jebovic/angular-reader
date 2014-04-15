@@ -1,16 +1,8 @@
-body {
-  font-size: 14px;
-  min-width: 550px;
-  background-color: #eeeeee;
-}
+/* Base colors */
+/* Special colors */
+/* Font */
 /* Layout */
 #loadMore i {
   margin-right: 5px;
   margin-left: 5px;
-}
-hr {
-  margin-top: 10px;
-  margin-bottom: 10px;
-  border: 0;
-  border-top: 1px solid #d5d5d5;
 }

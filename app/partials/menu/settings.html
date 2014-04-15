@@ -1,0 +1,8 @@
+<div id="settings">
+    <button class="btn btn-default btn-block" ng-init="isCollapsed = true" ng-click="isCollapsed = !isCollapsed"><i class="fa fa-cog"></i>&nbsp;Settings</button>
+    <div collapse="isCollapsed" class="settingsContent">
+        Limite : <div class="btn-group"><button ng-repeat="(value,text) in limitButtons" class="btn btn-default" ng-click="reload(value)" ng-disabled="limit==value" ng-class="{'btn-primary':limit==value}">{{text}}</button></div>
+        Sites : <div class="btn-group"><button ng-repeat="site in sites" class="btn btn-default" ng-click="toggleSite(site)" ng-class="{'btn-primary':activeSites.indexOf(site) != -1}"><i class="fa fa-filter"></i>&nbsp;{{site.title}}</button></div>
+    </div>
+    <div class="clearfix"></div>
+</div>
