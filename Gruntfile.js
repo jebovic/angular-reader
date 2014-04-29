@@ -94,8 +94,8 @@ module.exports = function (grunt) {
                 src: ['build-webapp-prod/*.json', 'build-webapp-prod/js/*.js', 'build-webapp-prod/partials/*.html', 'build-webapp-prod/partials/**/*.html'],
                 overwrite: true,
                 replacements: [{
-                    from: 'api.reader.loc',
-                    to: 'reader.loc/api'
+                    from: 'reader.loc',
+                    to: 'reader.amiral-labs.com'
                 }]
             }
         }

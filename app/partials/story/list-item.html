@@ -2,7 +2,7 @@
     <div class="panel-heading">
         <i class="fa" ng-class="isRead(story.unread)" style="color: #{{story.site.color}};"></i> &nbsp;{{ story.site.title }}
     </div>
-    <div class="image" ng-if="story.image.length > 0"><img ng-src="http://api.reader.loc/uploads/images/{{story.image}}" alt=""/></div>
+    <div class="image" ng-if="story.image.length > 0"><img ng-src="http://reader.loc/api/uploads/images/{{story.image}}" alt=""/></div>
     <div class="panel-body">
         <div id="storyContent{{ story.id }}" class="text">
             <p ng-bind-html="story.text"></p>
