@@ -33,6 +33,14 @@ module.exports = function (grunt) {
                     ],
                     dest: "build-webapp/"
                 }]
+            },
+            prod: {
+                files: [{
+                    expand: true,
+                    cwd: "build-webapp/",
+                    src: ["**"],
+                    dest: "build-webapp-prod"
+                }]
             }
         },
         uglify: {
@@ -80,6 +88,16 @@ module.exports = function (grunt) {
                     }
                 }
             }
+        },
+        replace: {
+            'prod-url': {
+                src: ['build-webapp-prod/*.json', 'build-webapp-prod/js/*.js', 'build-webapp-prod/partials/*.html', 'build-webapp-prod/partials/**/*.html'],
+                overwrite: true,
+                replacements: [{
+                    from: 'api.reader.loc',
+                    to: 'reader.loc/api'
+                }]
+            }
         }
     });
 
@@ -89,6 +107,8 @@ module.exports = function (grunt) {
     grunt.loadNpmTasks('grunt-contrib-copy');
     grunt.loadNpmTasks('grunt-contrib-cssmin');
     grunt.loadNpmTasks('grunt-file-blocks');
+    grunt.loadNpmTasks('grunt-text-replace');
     grunt.registerTask('build-webapp', ['copy:main','less', 'uglify:js', 'cssmin:css','fileblocks']);
+    grunt.registerTask('build-webapp-prod', ['build-webapp', 'copy:prod', 'replace:prod-url']);
 
 }
