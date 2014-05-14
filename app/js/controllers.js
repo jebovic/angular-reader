@@ -5,6 +5,9 @@
 angular.module('readerApp.controllers', [])
     .controller('RandomController', ['$scope', 'Storie', 'Site', '$sce', 'cacheService', function ($scope, Storie, Site, $sce, cacheService) {
         $scope.loading = true;
+        $scope.showStoryIndex = 0;
+        $scope.movedToNext = false;
+        $scope.movedToPrevious = false;
         $scope.limit = 10;
         $scope.stories = [];
         $scope.limitButtons = {1: "1", 10: "10", 25: "25", 50: "50"};
@@ -58,18 +61,39 @@ angular.module('readerApp.controllers', [])
             var cachedStories = cacheService.getData('readStories');
             var readStories = cachedStories ? angular.fromJson(cachedStories) : [];
             Storie.random({limit: $scope.limit, sites: siteIds.join(',')}, function (response) {
+                var first = true;
                 angular.forEach(response.stories, function (story, key) {
-                    story.toAnimate = false;
                     story.unread = true;
+                    story.animationClass = !first ? 'hide' : '';
                     var storyIndex = readStories.indexOf(story.id);
                     if (storyIndex != -1) {
                         story.unread = false;
                     }
                     $scope.stories.push(story);
                     readStories.push(story.id);
+                    first = false;
                 });
                 cacheService.setData('readStories', readStories);
                 $scope.loading = false;
             });
         };
+
+        $scope.nextStory = function() {
+            var storyIndex = $scope.showStoryIndex;
+            if ( $scope.stories.length != ( storyIndex + 1 ) )
+            {
+                $scope.stories[storyIndex].animationClass = "animated fadeOutLeftBig";
+                $scope.stories[storyIndex + 1].animationClass = "animated fadeInRightBig";
+                $scope.showStoryIndex = storyIndex + 1;
+            }
+        }
+        $scope.previousStory = function() {
+            var storyIndex = $scope.showStoryIndex;
+            if ( storyIndex !== 0 )
+            {
+                $scope.stories[storyIndex].animationClass = "animated fadeOutRightBig";
+                $scope.stories[storyIndex - 1].animationClass = "animated fadeInLeftBig";
+                $scope.showStoryIndex = storyIndex - 1;
+            }
+        }
     }]);

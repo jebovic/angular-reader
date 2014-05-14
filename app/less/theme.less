@@ -55,29 +55,38 @@ body {
 }
 
 /* Stories */
-.story {
-    background-color: #fff;
-    .border-radius(4px);
-    margin: 10px 0;
-    border: none;
-    box-shadow: none;
-    .panel-heading {
-        border-color: #eff2f7;
-        font-size: 13px;
-        font-weight: 400;
-        background: @grayLight;
-        text-transform: uppercase;
-        padding: 10px;
-        .border-top-radius(4px);
-    }
-    .image {
-        padding: 10px;
-        text-align: center;
-    }
-    .panel-body {
-        padding: 10px;
-        .decoration {
-            font-weight: bold;
+#storiesContainer {
+    position: relative;
+    .storyContainer {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        .story {
+            background-color: #fff;
+            .border-radius(4px);
+            margin: 10px 0;
+            border: none;
+            box-shadow: none;
+            .panel-heading {
+                border-color: #eff2f7;
+                font-size: 13px;
+                font-weight: 400;
+                background: @grayLight;
+                text-transform: uppercase;
+                padding: 10px;
+                .border-top-radius(4px);
+            }
+            .image {
+                padding: 10px;
+                text-align: center;
+            }
+            .panel-body {
+                padding: 10px;
+                .decoration {
+                    font-weight: bold;
+                }
+            }
         }
     }
 }
