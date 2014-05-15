@@ -12,7 +12,8 @@ module.exports = function (grunt) {
                 },
                 files: {
                     'app/css/<%= pkg.name %>.css': 'app/less/app.less',
-                    'app/css/<%= pkg.name %>-theme.css': 'app/less/theme.less'
+                    'app/css/<%= pkg.name %>-theme.css': 'app/less/theme.less',
+                    'app/css/<%= pkg.name %>-responsive.css': 'app/less/responsive.less',
                 }
             }
         },
@@ -51,9 +52,9 @@ module.exports = function (grunt) {
                         "app/vendor/bootstrap/dist/js/bootstrap.min.js",
                         "app/vendor/angular/angular.min.js",
                         "app/vendor/angular-route/angular-route.min.js",
+                        "app/vendor/angular-touch/angular-touch.min.js",
                         "app/vendor/angular-resource/angular-resource.min.js",
                         "app/vendor/angular-sanitize/angular-sanitize.min.js",
-                        "app/vendor/ngInfiniteScroll/ng-infinite-scroll.js",
                         "app/vendor/angular-bootstrap/ui-bootstrap.min.js",
                         "app/vendor/angular-bootstrap/ui-bootstrap-tpls.min.js",
                         "app/js/*.js"

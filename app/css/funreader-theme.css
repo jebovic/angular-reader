@@ -4,9 +4,10 @@
 body {
   color: #afaebc;
   background-color: #f1f2f7;
-  font-size: 12px;
+  font-size: 14px;
   min-width: 450px;
   padding-bottom: 50px;
+  overflow-x: hidden;
 }
 ::selection {
   background: #4bc3bc;

@@ -11,7 +11,6 @@ angular
         'readerApp.services',
         'readerApp.directives',
         'readerApp.controllers',
-        'infinite-scroll',
         'ui.bootstrap'
     ]).
     config(['$routeProvider', '$compileProvider', function ($routeProvider, $compileProvider) {
