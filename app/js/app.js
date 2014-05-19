@@ -7,14 +7,19 @@ angular
         'ngRoute',
         'ngSanitize',
         'ngTouch',
+        'ngAnimate',
         'readerApp.filters',
         'readerApp.services',
         'readerApp.directives',
         'readerApp.controllers',
+        'angular-loading-bar',
         'ui.bootstrap'
     ]).
     config(['$routeProvider', '$compileProvider', function ($routeProvider, $compileProvider) {
         $routeProvider.when('/random', {templateUrl: 'partials/views/random.html', controller: 'RandomController'});
         $routeProvider.otherwise({redirectTo: '/random'});
         $compileProvider.imgSrcSanitizationWhitelist(/^\s*(https?|chrome-extension):/);
+    }])
+    .config(['cfpLoadingBarProvider', function(cfpLoadingBarProvider) {
+        cfpLoadingBarProvider.includeSpinner = false;
     }]);

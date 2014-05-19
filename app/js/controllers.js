@@ -10,9 +10,15 @@ angular.module('readerApp.controllers', [])
         $scope.movedToPrevious = false;
         $scope.limit = 25;
         $scope.stories = [];
-        $scope.limitButtons = {10: "10", 25: "25", 50: "50"};
+        $scope.limitButtons = [
+            { limit: 25, text: "25 stories" },
+            { limit: 50, text: "50 stories" },
+            { limit: 100, text: "100 stories" },
+            { limit: 200, text: "200 stories" }
+        ];
         $scope.sites = [];
         $scope.activeSites = [];
+        $scope.firstLoad = true;
         $scope.templates = {
             'header': { url: 'partials/header.html'},
             'settings': { url: 'partials/menu/settings.html'},
@@ -47,7 +53,8 @@ angular.module('readerApp.controllers', [])
         $scope.reload = function (limit) {
             $scope.loading = true;
             $scope.limit = limit;
-            $scope.stories = [];
+            /* $scope.stories = []; */
+            $scope.showStoryIndex = 0;
             $scope.loadStories();
         };
         $scope.isRead = function( bool ) {
@@ -61,20 +68,23 @@ angular.module('readerApp.controllers', [])
             var cachedStories = cacheService.getData('readStories');
             var readStories = cachedStories ? angular.fromJson(cachedStories) : [];
             Storie.random({limit: $scope.limit, sites: siteIds.join(',')}, function (response) {
-                var first = true;
                 angular.forEach(response.stories, function (story, key) {
                     story.unread = true;
-                    story.animationClass = !first ? 'hide' : 'animated fadeInRight';
+                    story.animationClass = 'hide';
                     var storyIndex = readStories.indexOf(story.id);
                     if (storyIndex != -1) {
                         story.unread = false;
                     }
                     $scope.stories.push(story);
                     readStories.push(story.id);
-                    first = false;
                 });
                 cacheService.setData('readStories', readStories);
                 $scope.loading = false;
+                if ( $scope.firstLoad )
+                {
+                    $scope.showFirst();
+                }
+                $scope.firstLoad = false;
             });
         };
 
@@ -86,20 +96,21 @@ angular.module('readerApp.controllers', [])
                 $scope.stories[storyIndex + 1].animationClass = "animated fadeInRight";
                 $scope.showStoryIndex = storyIndex + 1;
             }
-            if ( $scope.stories.length < ( storyIndex + 4 ) )
+            if ( $scope.stories.length < ( storyIndex + 8 ) && $scope.loading === false )
             {
                 $scope.loadMore();
             }
-        }
+        };
         $scope.previousStory = function() {
             var storyIndex = $scope.showStoryIndex;
+            // MARK read
             if ( storyIndex !== 0 )
             {
                 $scope.stories[storyIndex].animationClass = "animated fadeOutRight";
                 $scope.stories[storyIndex - 1].animationClass = "animated fadeInLeft";
                 $scope.showStoryIndex = storyIndex - 1;
             }
-        }
+        };
         $scope.navigate = function( event ) {
             if ( event.keyCode == 37 )
             {
@@ -109,7 +120,13 @@ angular.module('readerApp.controllers', [])
             {
                 $scope.nextStory();
             }
-        }
+        };
+        $scope.showFirst = function() {
+            $scope.stories[0].animationClass = "animated fadeInRight";
+        };
+        $scope.showLast = function() {
+            $scope.showStoryIndex = $scope.stories.length - 1;
+        };
 
         $('body').keydown(function (e) {
             $scope.$apply(function () {

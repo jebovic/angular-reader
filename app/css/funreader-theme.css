@@ -13,11 +13,21 @@ body {
   background: #4bc3bc;
   color: #fff;
 }
+a {
+  cursor: pointer;
+}
 /* Header */
 #logo {
   padding: 10px 20px;
   color: #1fb5ac;
   float: left;
+}
+#logo h1 {
+  padding: 0;
+  margin: 0;
+}
+#counter {
+  padding-top: 10px;
 }
 /* Settings */
 #settings .settingsContent {
@@ -57,6 +67,14 @@ body {
   background-color: #1fb5ac;
   border-color: #1fb5ac;
   color: #fff;
+}
+/* Dropdown */
+.dropdown-menu h3 {
+  margin: 0;
+  padding: 5px 0 0 0;
+  font-size: 1.2em;
+  color: #1fb5ac;
+  text-align: center;
 }
 /* Stories */
 #storiesContainer {

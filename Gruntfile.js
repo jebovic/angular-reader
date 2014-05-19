@@ -30,6 +30,7 @@ module.exports = function (grunt) {
                         "vendor/bootstrap/dist/css/bootstrap.min.css",
                         "vendor/animate.css/animate.min.css",
                         "vendor/Font-Awesome/css/font-awesome.min.css",
+                        "vendor/angular-loading-bar/build/loading-bar.min.css",
                         "vendor/Font-Awesome/fonts/*"
                     ],
                     dest: "build-webapp/"
@@ -57,6 +58,8 @@ module.exports = function (grunt) {
                         "app/vendor/angular-sanitize/angular-sanitize.min.js",
                         "app/vendor/angular-bootstrap/ui-bootstrap.min.js",
                         "app/vendor/angular-bootstrap/ui-bootstrap-tpls.min.js",
+                        "app/vendor/angular-animate/angular-animate.min.js",
+                        "app/vendor/angular-loading-bar/build/loading-bar.min.js",
                         "app/js/*.js"
                     ]
                 }

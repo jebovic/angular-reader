@@ -1,4 +1,22 @@
 <header>
     <div id="logo"><h1>D<img src="../img/icon48.png" alt="o" width="48" height="48"/><img src="../img/icon48.png" alt="o" width="48" height="48"/>nut Reader</h1></div>
+    <div id="counter" ng-show="stories.length" class="pull-right">
+        <span class="index">{{ showStoryIndex + 1 }}</span>
+        <span class="delimiter">/</span>
+        <!-- Single button -->
+        <div class="btn-group" dropdown is-open="status.isopen">
+            <button type="button" class="btn btn-primary dropdown-toggle" ng-disabled="disabled">
+                {{ stories.length }} <span class="caret"></span>
+            </button>
+            <ul class="dropdown-menu" role="menu">
+                <li><h3>Preload stories</h3></li>
+                <li class="divider"></li>
+                <li ng-repeat="button in limitButtons" ng-class="{'disabled':limit==button.limit}">
+                    <a ng-click="reload(button.limit)" >{{button.text}}</a>
+                </li>
+            </ul>
+        </div>
+
+    </div>
     <div class="clearfix"></div>
 </header>

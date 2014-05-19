@@ -13,12 +13,28 @@ body {
     background: @primary;
     color: #fff;
 }
+a {
+    cursor: pointer;
+}
 
 /* Header */
 #logo {
     padding: 10px 20px;
     color: @primaryActive;
     float: left;
+    h1 {
+        padding: 0;
+        margin: 0;
+    }
+}
+#counter {
+    padding-top: 10px;
+    .index {
+
+    }
+    .delimiter {
+
+    }
 }
 
 /* Settings */
@@ -53,6 +69,17 @@ body {
     background-color: @primaryActive;
     border-color: @primaryActive;
     color: #fff;
+}
+
+/* Dropdown */
+.dropdown-menu {
+    h3 {
+        margin: 0;
+        padding: 5px 0 0 0;
+        font-size: 1.2em;
+        color: @primaryActive;
+        text-align: center;
+    }
 }
 
 /* Stories */

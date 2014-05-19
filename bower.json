@@ -1,22 +1,26 @@
 {
-    "name": "angular-seed",
-    "description": "A starter project for AngularJS",
-    "version": "0.0.0",
-    "homepage": "https://github.com/angular/angular-seed",
-    "license": "MIT",
-    "private": true,
-    "dependencies": {
-        "angular": "1.2.x",
-        "angular-route": "1.2.x",
-        "angular-loader": "1.2.x",
-        "angular-mocks": "~1.2.15",
-        "angular-resource": "~1.2.15",
-        "angular-sanitize": "~1.2.15",
-        "angular-touch": "1.2.x",
-        "angular-bootstrap": "0.x",
-        "jquery": "1.x",
-        "bootstrap": "3.x",
-        "animate.css": "3.x",
-        "Font-Awesome": "4.x"
-    }
+  "name": "angular-seed",
+  "description": "A starter project for AngularJS",
+  "version": "0.0.0",
+  "homepage": "https://github.com/angular/angular-seed",
+  "license": "MIT",
+  "private": true,
+  "dependencies": {
+    "angular": "1.2.x",
+    "angular-route": "1.2.x",
+    "angular-loader": "1.2.x",
+    "angular-mocks": "~1.2.15",
+    "angular-resource": "~1.2.15",
+    "angular-sanitize": "~1.2.15",
+    "angular-touch": "1.2.x",
+    "angular-bootstrap": "0.x",
+    "angular-loading-bar": "0.x",
+    "jquery": "1.x",
+    "bootstrap": "3.x",
+    "animate.css": "3.x",
+    "Font-Awesome": "4.x"
+  },
+  "devDependencies": {
+    "angular-animate": "~1.2.16"
+  }
 }
