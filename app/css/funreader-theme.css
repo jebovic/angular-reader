@@ -1,3 +1,4 @@
+@import url(http://fonts.googleapis.com/css?family=Give+You+Glory);
 /* Base colors */
 /* Special colors */
 /* Font */
@@ -5,6 +6,7 @@ body {
   color: #afaebc;
   background-color: #f1f2f7;
   font-size: 14px;
+  font-family: 'Helvetica Neue', Arial, sans-serif;
   min-width: 450px;
   padding-bottom: 50px;
   overflow-x: hidden;
@@ -17,23 +19,62 @@ a {
   cursor: pointer;
 }
 /* Header */
-#logo {
-  padding: 10px 20px;
+header {
+  padding-top: 10px;
+  min-height: 100px;
+}
+header #logo {
+  padding: 17px 20px;
   color: #1fb5ac;
   float: left;
+  font-family: 'Give You Glory', cursive;
 }
-#logo h1 {
+header #logo h1 {
   padding: 0;
   margin: 0;
+  font-size: 60px;
 }
-#counter {
-  padding-top: 10px;
+header #logo.zIndex {
+  z-index: 9999;
+  position: absolute;
+}
+header #counter {
+  height: 100px;
+  word-spacing: 10px;
+  padding-right: 20px;
+  line-height: 100px;
+}
+header #counter .index {
+  font-size: 30px;
+  vertical-align: middle;
+  font-family: 'Give You Glory', cursive;
+  color: #4bc3bc;
+}
+header #counter .delimiter {
+  font-size: 40px;
+  font-family: 'Give You Glory', cursive;
+  vertical-align: middle;
+}
+header #counter .btn-group {
+  word-spacing: normal;
+}
+header #counter button {
+  font-size: 20px;
+  font-family: 'Give You Glory', cursive;
+}
+/* Main Loader */
+#mainLoader {
+  padding: 30px;
+  position: absolute;
+  left: 50%;
+  margin-left: -79px;
 }
 /* Settings */
-#settings .settingsContent {
+#settings #settingsContent {
   background-color: #ffffff;
   padding: 10px;
   margin: 10px 0;
+  line-height: 30px;
   border-radius: 4px;
   -moz-border-radius: 4px;
   -webkit-border-radius: 4px;
@@ -79,21 +120,23 @@ a {
 /* Stories */
 #storiesContainer {
   position: relative;
+  min-height: 200px;
 }
 #storiesContainer .storyContainer {
   position: absolute;
   top: 0;
   left: 0;
   width: 100%;
+  cursor: url("../img/swipe.png"), auto;
 }
 #storiesContainer .storyContainer .story {
   background-color: #fff;
   border-radius: 4px;
   -moz-border-radius: 4px;
   -webkit-border-radius: 4px;
-  margin: 10px 0;
   border: none;
   box-shadow: none;
+  margin-bottom: 0;
 }
 #storiesContainer .storyContainer .story .panel-heading {
   border-color: #eff2f7;

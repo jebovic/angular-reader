@@ -1,8 +1,61 @@
+@import url(http://fonts.googleapis.com/css?family=Give+You+Glory);
 /* Base colors */
 /* Special colors */
 /* Font */
-/* Layout */
-#loadMore i {
-  margin-right: 5px;
-  margin-left: 5px;
+#helpOverlay {
+  position: absolute;
+  top: -100px;
+  left: -100px;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.7);
+  font-family: 'Give You Glory', cursive;
+  display: block;
+}
+#helpOverlay.fadeOut:not(.ng-animate) {
+  display: none;
+}
+#helpOverlay .helpItem {
+  position: absolute;
+  border-top: 1px dotted #c7cbd6;
+  background: rgba(0, 0, 0, 0.3);
+  border-radius: 4px;
+  -moz-border-radius: 4px;
+  -webkit-border-radius: 4px;
+  color: #fff;
+  font-size: 25px;
+  text-align: center;
+}
+#helpOverlay .helpItem .image {
+  padding: 20px;
+}
+#helpOverlay .helpItem#counterHelpBlock {
+  font-size: 20px;
+  padding-top: 10px;
+}
+#helpOverlay .helpItem#swipeHelpBlock {
+  padding: 0 30px 30px 30px;
+  min-height: 200px;
+}
+#helpOverlay .helpItem#sitesHelpBlock {
+  padding-top: 10px;
+}
+#helpOverlay .dismiss {
+  text-align: center;
+  width: 100%;
+  position: absolute;
+  top: 500px;
+}
+#loading-bar .bar {
+  background: #4bc3bc;
+}
+#loading-bar .peg {
+  -moz-box-shadow: #4bc3bc 1px 0 6px 1px;
+  -ms-box-shadow: #4bc3bc 1px 0 6px 1px;
+  -webkit-box-shadow: #4bc3bc 1px 0 6px 1px;
+  box-shadow: #4bc3bc 1px 0 6px 1px;
+}
+#loading-bar-spinner .spinner-icon {
+  border-top-color: #4bc3bc;
+  border-left-color: #4bc3bc;
 }

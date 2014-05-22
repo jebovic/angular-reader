@@ -2,13 +2,14 @@
     <ng-include src="templates.header.url"></ng-include>
     <ng-include src="templates.settings.url"></ng-include>
     <!--ng-include src="templates.menuSites.url"></ng-include-->
-    <div class="text-center" style="padding: 30px;" ng-class="{hide:stories.length > 0}">
+    <div id="mainLoader" class="text-center" style="padding: 30px;" ng-class="{hide:stories.length > 0}">
         <img ng-src="/img/loader.gif" height="128" width="128" />
     </div>
-    <div id="storiesContainer">
+    <div id="storiesContainer" reader-help reader-help-block="swipe">
         <div ng-repeat="story in stories" class="storyContainer {{ story.animationClass }}" ng-swipe-left="nextStory()" ng-swipe-right="previousStory()">
             <ng-include src="templates.storyListItem.url" ></ng-include>
         </div>
         <div class="clearfix"></div>
     </div>
 </div>
+<ng-include src="templates.help.url"></ng-include>

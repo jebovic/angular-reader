@@ -5,6 +5,7 @@ body {
     color: @fontColor;
     background-color: @bgColor;
     font-size: @fontSize;
+    font-family: @fontFamily;
     min-width: 450px;
     padding-bottom: 50px;
     overflow-x: hidden;
@@ -18,31 +19,65 @@ a {
 }
 
 /* Header */
-#logo {
-    padding: 10px 20px;
-    color: @primaryActive;
-    float: left;
-    h1 {
-        padding: 0;
-        margin: 0;
+header {
+    padding-top: 10px;
+    min-height: 100px;
+    #logo {
+        padding: 17px 20px;
+        color: @primaryActive;
+        float: left;
+        font-family: @fontFamilyLogo;
+        h1 {
+            padding: 0;
+            margin: 0;
+            font-size: 60px;
+        }
+        &.zIndex {
+            z-index: 9999;
+            position: absolute;
+        }
+    }
+    #counter {
+        height: 100px;
+        word-spacing: 10px;
+        padding-right: 20px;
+        line-height: 100px;
+        .index {
+            font-size: 30px;
+            vertical-align: middle;
+            font-family: @fontFamilyCounter;
+            color: @primary;
+        }
+        .delimiter {
+            font-size: 40px;
+            font-family: @fontFamilyCounter;
+            vertical-align: middle;
+        }
+        .btn-group {
+            word-spacing: normal;
+        }
+        button {
+            font-size: 20px;
+            font-family: @fontFamilyCounter;
+        }
     }
 }
-#counter {
-    padding-top: 10px;
-    .index {
 
-    }
-    .delimiter {
-
-    }
+/* Main Loader */
+#mainLoader {
+    padding: 30px;
+    position: absolute;
+    left: 50%;
+    margin-left: -79px;
 }
 
 /* Settings */
 #settings {
-    .settingsContent {
+    #settingsContent {
         background-color: #ffffff;
         padding: 10px;
         margin: 10px 0;
+        line-height: 30px;
         .border-radius(4px);
     }
 }
@@ -85,17 +120,19 @@ a {
 /* Stories */
 #storiesContainer {
     position: relative;
+    min-height: 200px;
     .storyContainer {
         position: absolute;
         top: 0;
         left: 0;
         width: 100%;
+        cursor: url("../img/swipe.png"), auto;
         .story {
             background-color: #fff;
             .border-radius(4px);
-            margin: 10px 0;
             border: none;
             box-shadow: none;
+            margin-bottom: 0;
             .panel-heading {
                 border-color: #eff2f7;
                 font-size: 13px;

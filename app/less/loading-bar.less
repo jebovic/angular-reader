@@ -1,0 +1,17 @@
+@import "variables.less";
+
+#loading-bar {
+    .bar {
+        background: @loadingBarColor;
+    }
+    .peg {
+        -moz-box-shadow: @loadingBarColor 1px 0 6px 1px;
+        -ms-box-shadow: @loadingBarColor 1px 0 6px 1px;
+        -webkit-box-shadow: @loadingBarColor 1px 0 6px 1px;
+        box-shadow: @loadingBarColor 1px 0 6px 1px;
+    }
+}
+#loading-bar-spinner .spinner-icon {
+    border-top-color:  @loadingBarColor;
+    border-left-color: @loadingBarColor;
+}

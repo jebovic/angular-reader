@@ -4,8 +4,7 @@
 
 // Demonstrate how to register services
 // In this case it is a simple value service.
-angular.module('readerApp.services', ['ngResource']).
-    value('version', '0.1')
+angular.module('readerApp.services', ['ngResource'])
     .factory('Storie', ['$resource',
         function ($resource) {
             return $resource('http://reader.loc/api/stories', {limit: '@limit', sites: '@sites'}, {
