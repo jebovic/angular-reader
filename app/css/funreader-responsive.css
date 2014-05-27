@@ -2,13 +2,137 @@
 /* Base colors */
 /* Special colors */
 /* Font */
+/* Responsive Functions*/
 @media (max-width: 767px) {
   body {
     min-width: 100%;
+  }
+  header {
+    padding-top: 5px;
+    min-height: 74.5px;
+  }
+  header #logo {
+    padding: 8.5px 10px;
+  }
+  header #logo h1 {
+    font-size: 30px;
+  }
+  header #logo img {
+    width: 24px;
+    height: 24px;
+  }
+  header #counter {
+    height: 69.5px;
+    word-spacing: 5px;
+    padding-right: 10px;
+    line-height: 69.5px;
+  }
+  header #counter .index {
+    font-size: 15px;
+  }
+  header #counter .delimiter {
+    font-size: 20px;
+  }
+  header #counter button {
+    font-size: 12.5px;
+  }
+  #helpOverlay .helpItem {
+    font-size: 17.5px;
+  }
+  #helpOverlay .helpItem .image {
+    padding: 14px;
+  }
+  #helpOverlay .helpItem#counterHelpBlock {
+    font-size: 14px;
+    padding-top: 7px;
+  }
+  #helpOverlay .helpItem#swipeHelpBlock {
+    padding: 0 21px 21px 21px;
+    min-height: 200px;
+  }
+  #helpOverlay .helpItem#sitesHelpBlock {
+    padding-top: 7px;
   }
 }
 @media (min-width: 768px) and (max-width: 991px) {
   body {
     min-width: 100%;
+  }
+  header {
+    padding-top: 7px;
+    min-height: 104.3px;
+  }
+  header #logo {
+    padding: 11.9px 14px;
+  }
+  header #logo h1 {
+    font-size: 42px;
+  }
+  header #logo img {
+    width: 33.6px;
+    height: 33.6px;
+  }
+  header #counter {
+    height: 97.3px;
+    word-spacing: 7px;
+    padding-right: 14px;
+    line-height: 97.3px;
+  }
+  header #counter .index {
+    font-size: 21px;
+  }
+  header #counter .delimiter {
+    font-size: 28px;
+  }
+  header #counter button {
+    font-size: 17.5px;
+  }
+  #helpOverlay .helpItem {
+    font-size: 22.5px;
+  }
+  #helpOverlay .helpItem .image {
+    padding: 18px;
+  }
+  #helpOverlay .helpItem#counterHelpBlock {
+    font-size: 18px;
+    padding-top: 9px;
+  }
+  #helpOverlay .helpItem#swipeHelpBlock {
+    padding: 0 27px 27px 27px;
+    min-height: 200px;
+  }
+  #helpOverlay .helpItem#sitesHelpBlock {
+    padding-top: 9px;
+  }
+}
+@media (min-width: 992px) and (max-width: 1199px) {
+  header {
+    padding-top: 9px;
+    min-height: 134.1px;
+  }
+  header #logo {
+    padding: 15.3px 18px;
+  }
+  header #logo h1 {
+    font-size: 54px;
+  }
+  header #logo img {
+    width: 43.2px;
+    height: 43.2px;
+  }
+  header #counter {
+    height: 125.1px;
+    word-spacing: 9px;
+    padding-right: 18px;
+    line-height: 125.1px;
+  }
+  header #counter .index {
+    font-size: 27px;
+  }
+  header #counter .delimiter {
+    font-size: 36px;
+  }
+  header #counter button {
+    font-size: 22.5px;
   }
 }

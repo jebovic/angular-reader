@@ -13,3 +13,53 @@
     -webkit-border-top-left-radius: @rad;
     -webkit-border-top-right-radius: @rad;
 }
+
+/* Responsive Functions*/
+.responsive-header(@scale) {
+    padding-top: unit(10*@scale, px);
+    min-height: unit(149*@scale, px);
+    #logo { .responsive-logo(@scale); }
+    #counter { .responsive-counter(@scale); }
+}
+.responsive-logo(@scale) {
+    padding: unit(17*@scale, px) unit(20*@scale, px);
+    h1 {
+        font-size: unit(60*@scale, px);
+    }
+    img {
+        width: unit(48*@scale, px);
+        height: unit(48*@scale, px);
+    }
+}
+.responsive-counter(@scale) {
+    height: unit(139*@scale, px);
+    word-spacing: unit(10*@scale, px);
+    padding-right: unit(20*@scale, px);
+    line-height: unit(139*@scale, px);
+    .index {
+        font-size: unit(30*@scale, px);
+    }
+    .delimiter {
+        font-size:  unit(40*@scale, px);
+    }
+    button {
+        font-size:  unit(25*@scale, px);
+    }
+}
+.responsive-help-item(@scale) {
+    font-size: unit(25*@scale,px);
+    .image {
+        padding: unit(20*@scale,px);
+    }
+    &#counterHelpBlock {
+        font-size: unit(20*@scale,px);
+        padding-top: unit(10*@scale,px);
+    }
+    &#swipeHelpBlock {
+        padding: 0 unit(30*@scale,px) unit(30*@scale,px) unit(30*@scale,px);
+        min-height: 200px;
+    }
+    &#sitesHelpBlock {
+        padding-top: unit(10*@scale,px);
+    }
+}

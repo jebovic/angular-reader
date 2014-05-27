@@ -20,17 +20,14 @@ a {
 
 /* Header */
 header {
-    padding-top: 10px;
-    min-height: 100px;
+    .responsive-header(1);
     #logo {
-        padding: 17px 20px;
         color: @primaryActive;
         float: left;
         font-family: @fontFamilyLogo;
         h1 {
             padding: 0;
             margin: 0;
-            font-size: 60px;
         }
         &.zIndex {
             z-index: 9999;
@@ -38,18 +35,12 @@ header {
         }
     }
     #counter {
-        height: 100px;
-        word-spacing: 10px;
-        padding-right: 20px;
-        line-height: 100px;
         .index {
-            font-size: 30px;
             vertical-align: middle;
             font-family: @fontFamilyCounter;
             color: @primary;
         }
         .delimiter {
-            font-size: 40px;
             font-family: @fontFamilyCounter;
             vertical-align: middle;
         }
@@ -57,7 +48,6 @@ header {
             word-spacing: normal;
         }
         button {
-            font-size: 20px;
             font-family: @fontFamilyCounter;
         }
     }

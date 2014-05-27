@@ -2,6 +2,7 @@
 /* Base colors */
 /* Special colors */
 /* Font */
+/* Responsive Functions*/
 body {
   color: #afaebc;
   background-color: #f1f2f7;
@@ -21,10 +22,34 @@ a {
 /* Header */
 header {
   padding-top: 10px;
-  min-height: 100px;
+  min-height: 149px;
 }
 header #logo {
   padding: 17px 20px;
+}
+header #logo h1 {
+  font-size: 60px;
+}
+header #logo img {
+  width: 48px;
+  height: 48px;
+}
+header #counter {
+  height: 139px;
+  word-spacing: 10px;
+  padding-right: 20px;
+  line-height: 139px;
+}
+header #counter .index {
+  font-size: 30px;
+}
+header #counter .delimiter {
+  font-size: 40px;
+}
+header #counter button {
+  font-size: 25px;
+}
+header #logo {
   color: #1fb5ac;
   float: left;
   font-family: 'Give You Glory', cursive;
@@ -32,26 +57,17 @@ header #logo {
 header #logo h1 {
   padding: 0;
   margin: 0;
-  font-size: 60px;
 }
 header #logo.zIndex {
   z-index: 9999;
   position: absolute;
 }
-header #counter {
-  height: 100px;
-  word-spacing: 10px;
-  padding-right: 20px;
-  line-height: 100px;
-}
 header #counter .index {
-  font-size: 30px;
   vertical-align: middle;
   font-family: 'Give You Glory', cursive;
   color: #4bc3bc;
 }
 header #counter .delimiter {
-  font-size: 40px;
   font-family: 'Give You Glory', cursive;
   vertical-align: middle;
 }
@@ -59,7 +75,6 @@ header #counter .btn-group {
   word-spacing: normal;
 }
 header #counter button {
-  font-size: 20px;
   font-family: 'Give You Glory', cursive;
 }
 /* Main Loader */
