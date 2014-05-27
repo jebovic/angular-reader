@@ -7,6 +7,14 @@
         "default_icon": "img/icon64.png",
         "default_popup": "index.html"
     },
+    /*"app": {
+        "launch": {
+            "local_path": "index.html",
+            "width": 800,
+            "height": 6hhhh00,
+            "container": "panel"
+        }
+    },*/
     "icons": {
         "16": "img/icon16.png",
         "48": "img/icon48.png",

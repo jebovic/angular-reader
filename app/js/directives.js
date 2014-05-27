@@ -16,7 +16,7 @@ angular.module('readerApp.directives', [])
             }
         }
     }])
-    .directive('resize', function ($window) {
+    .directive('resize', ['$window',function ($window) {
         return function (scope, element) {
             var w = angular.element($window);
             scope.getWindowDimensions = function () {
@@ -57,4 +57,4 @@ angular.module('readerApp.directives', [])
                 scope.$apply();
             });
         }
-    });
+    }]);

@@ -26,6 +26,7 @@ module.exports = function (grunt) {
                         "*.html",
                         "*.json",
                         "img/*",
+                        "fonts/*",
                         "partials/**/*.html",
                         "vendor/bootstrap/dist/css/bootstrap.min.css",
                         "vendor/Font-Awesome/css/font-awesome.min.css",
@@ -47,19 +48,28 @@ module.exports = function (grunt) {
         uglify: {
             js: {
                 files: {
-                    'build-webapp/js/<%= pkg.name %>.min.js': [
+                    'build-webapp/js/vendors.min.js': [
                         "app/vendor/jquery/dist/jquery.js",
-                        "app/vendor/bootstrap/dist/js/bootstrap.min.js",
+                        "app/vendor/bootstrap/dist/js/bootstrap.min.js"
+                    ],
+                    'build-webapp/js/angulars.min.js': [
                         "app/vendor/angular/angular.min.js",
                         "app/vendor/angular-route/angular-route.min.js",
                         "app/vendor/angular-touch/angular-touch.min.js",
                         "app/vendor/angular-resource/angular-resource.min.js",
                         "app/vendor/angular-sanitize/angular-sanitize.min.js",
-                        "app/vendor/angular-bootstrap/ui-bootstrap.min.js",
-                        "app/vendor/angular-bootstrap/ui-bootstrap-tpls.min.js",
                         "app/vendor/angular-animate/angular-animate.min.js",
                         "app/vendor/angular-loading-bar/build/loading-bar.min.js",
-                        "app/js/*.js"
+                        "app/vendor/angular-bootstrap/ui-bootstrap.min.js",
+                        "app/vendor/angular-bootstrap/ui-bootstrap-tpls.min.js"
+                    ],
+                    'build-webapp/js/<%= pkg.name %>.min.js': [
+                        "app/js/app.js",
+                        "app/js/services.js",
+                        "app/js/controllers.js",
+                        "app/js/filters.js",
+                        "app/js/directives.js",
+                        "app/js/animation.js"
                     ]
                 }
             }
@@ -85,7 +95,9 @@ module.exports = function (grunt) {
                     },
                     'prodScripts' : {
                         src: [
-                            'js/*.js'
+                            'js/vendors.min.js',
+                            'js/angulars.min.js',
+                            'js/<%= pkg.name %>.min.js'
                         ],
                         cwd: 'build-webapp'
                     }
@@ -101,6 +113,10 @@ module.exports = function (grunt) {
                     to: 'reader.amiral-labs.com'
                 }]
             }
+        },
+        clean: {
+            'build-webapp': ["build-webapp"],
+            'build-webapp-prod': ["build-webapp-prod"]
         }
     });
 
@@ -111,7 +127,8 @@ module.exports = function (grunt) {
     grunt.loadNpmTasks('grunt-contrib-cssmin');
     grunt.loadNpmTasks('grunt-file-blocks');
     grunt.loadNpmTasks('grunt-text-replace');
-    grunt.registerTask('build-webapp', ['copy:main','less', 'uglify:js', 'cssmin:css','fileblocks']);
-    grunt.registerTask('build-webapp-prod', ['build-webapp', 'copy:prod', 'replace:prod-url']);
+    grunt.loadNpmTasks('grunt-contrib-clean');
+    grunt.registerTask('build-webapp', ['clean:build-webapp','copy:main','less', 'uglify:js', 'cssmin:css','fileblocks']);
+    grunt.registerTask('build-webapp-prod', ['clean:build-webapp-prod','build-webapp', 'copy:prod', 'replace:prod-url']);
 
 }

@@ -1,4 +1,9 @@
-@import url(http://fonts.googleapis.com/css?family=Give+You+Glory);
+@font-face {
+  font-family: 'Give You Glory';
+  font-style: normal;
+  font-weight: 400;
+  src: local('Give You Glory'), local('GiveYouGlory'), url(../fonts/giveyouglory.woff) format('woff');
+}
 /* Base colors */
 /* Special colors */
 /* Font */
@@ -6,9 +11,10 @@
 body {
   color: #afaebc;
   background-color: #f1f2f7;
-  font-size: 14px;
+  font-size: 16px;
   font-family: 'Helvetica Neue', Arial, sans-serif;
-  min-width: 450px;
+  width: 800px;
+  height: 600px;
   padding-bottom: 50px;
   overflow-x: hidden;
 }
@@ -31,28 +37,6 @@ h5 {
 header {
   padding-top: 10px;
   min-height: 149px;
-}
-header #logo {
-  padding: 17px 20px;
-}
-header #logo h1 {
-  font-size: 60px;
-}
-header #logo img {
-  width: 48px;
-  height: 48px;
-}
-header #quickmenu .menu-item {
-  width: 60px;
-  height: 60px;
-  line-height: 60px;
-  font-size: 30px;
-  border-radius: 10px;
-  -moz-border-radius: 10px;
-  -webkit-border-radius: 10px;
-}
-header #quickmenu .menu-item.menu-item-double {
-  width: 108px;
 }
 header #logo {
   color: #1fb5ac;
@@ -93,6 +77,31 @@ header #quickmenu .menu-item:nth-child(2n+1) {
 }
 header #quickmenu .menu-item i {
   vertical-align: middle;
+}
+header #logo {
+  padding: 17px 20px;
+}
+header #logo h1 {
+  font-size: 60px;
+}
+header #logo img {
+  width: 48px;
+  height: 48px;
+}
+header #quickmenu .menu-item {
+  /*width: @blockSizeFormated;
+        height: @blockSizeFormated;
+        line-height: @blockSizeFormated;*/
+  padding: 10px 15px;
+  min-width: 60px;
+  height: 60px;
+  font-size: 27px;
+  border-radius: 10px;
+  -moz-border-radius: 10px;
+  -webkit-border-radius: 10px;
+}
+header #quickmenu .menu-item.menu-item-double {
+  width: 108px;
 }
 /* Main Loader */
 #mainLoader {
@@ -186,6 +195,24 @@ header #quickmenu .menu-item i {
 .get-more-modal ul li a:hover {
   color: #1fb5ac;
 }
+.filter-modal .sites-list a {
+  -webkit-transition: all linear 0.4s;
+  transition: all linear 0.4s;
+  padding: 10px 15px 5px 15px;
+  font-family: 'Give You Glory', cursive;
+  font-style: italic;
+  color: #c7cbd6;
+}
+.filter-modal .sites-list a.infavs {
+  font-style: normal;
+  color: #1fb5ac;
+}
+.filter-modal .sites-list a .fa-star {
+  color: #e6c511;
+}
+.filter-modal .sites-list a .fa-star-o {
+  color: #c7cbd6;
+}
 /* Tooltips */
 .tooltip {
   font-family: 'Give You Glory', cursive;
@@ -219,7 +246,7 @@ header #quickmenu .menu-item i {
 }
 #storiesContainer .storyContainer .story .panel-heading {
   border-color: #eff2f7;
-  font-size: 13px;
+  font-size: 18px;
   font-weight: 400;
   background: #fafafa;
   text-transform: uppercase;
@@ -239,14 +266,14 @@ header #quickmenu .menu-item i {
   margin: 0;
   padding: 0;
   float: none;
-  font-size: 20px;
+  font-size: 25px;
 }
 #storiesContainer .storyContainer .story .panel-heading h1 i,
 #storiesContainer .storyContainer .story .panel-heading h2 i,
 #storiesContainer .storyContainer .story .panel-heading h3 i,
 #storiesContainer .storyContainer .story .panel-heading h4 i,
 #storiesContainer .storyContainer .story .panel-heading h5 i {
-  font-size: 13px;
+  font-size: 18px;
 }
 #storiesContainer .storyContainer .story .image {
   padding: 10px;

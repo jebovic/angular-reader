@@ -1,4 +1,9 @@
-@import url(http://fonts.googleapis.com/css?family=Give+You+Glory);
+@font-face {
+  font-family: 'Give You Glory';
+  font-style: normal;
+  font-weight: 400;
+  src: local('Give You Glory'), local('GiveYouGlory'), url(../fonts/giveyouglory.woff) format('woff');
+}
 /* Base colors */
 /* Special colors */
 /* Font */
@@ -6,7 +11,9 @@
 /* XS < 480px */
 @media (max-width: 480px) {
   body {
-    min-width: 300px;
+    width: 100%;
+    min-width: auto;
+    height: auto;
   }
   header {
     padding-top: 5px;
@@ -23,10 +30,13 @@
     height: 24px;
   }
   header #quickmenu .menu-item {
-    width: 30px;
+    /*width: @blockSizeFormated;
+        height: @blockSizeFormated;
+        line-height: @blockSizeFormated;*/
+    padding: 5px 7px;
+    min-width: 30px;
     height: 30px;
-    line-height: 30px;
-    font-size: 15px;
+    font-size: 14px;
     border-radius: 5px;
     -moz-border-radius: 5px;
     -webkit-border-radius: 5px;
@@ -54,6 +64,11 @@
 }
 /* 480px < S < 767px */
 @media (min-width: 480px) and (max-width: 767px) {
+  body {
+    width: 100%;
+    min-width: auto;
+    height: auto;
+  }
   header {
     padding-top: 5px;
     min-height: 74.5px;
@@ -69,10 +84,13 @@
     height: 24px;
   }
   header #quickmenu .menu-item {
-    width: 30px;
+    /*width: @blockSizeFormated;
+        height: @blockSizeFormated;
+        line-height: @blockSizeFormated;*/
+    padding: 5px 7px;
+    min-width: 30px;
     height: 30px;
-    line-height: 30px;
-    font-size: 15px;
+    font-size: 14px;
     border-radius: 5px;
     -moz-border-radius: 5px;
     -webkit-border-radius: 5px;
@@ -100,7 +118,9 @@
 }
 @media (min-width: 768px) and (max-width: 991px) {
   body {
-    min-width: 991px;
+    width: 100%;
+    min-width: auto;
+    height: auto;
   }
   header {
     padding-top: 7px;
@@ -117,16 +137,19 @@
     height: 33.6px;
   }
   header #quickmenu .menu-item {
-    width: 42px;
+    /*width: @blockSizeFormated;
+        height: @blockSizeFormated;
+        line-height: @blockSizeFormated;*/
+    padding: 7px 10px;
+    min-width: 42px;
     height: 42px;
-    line-height: 42px;
-    font-size: 21px;
+    font-size: 19px;
     border-radius: 7px;
     -moz-border-radius: 7px;
     -webkit-border-radius: 7px;
   }
   header #quickmenu .menu-item.menu-item-double {
-    width: 75.6px;
+    width: 75px;
   }
   #helpOverlay .helpItem {
     font-size: 22.5px;
@@ -147,6 +170,11 @@
   }
 }
 @media (min-width: 992px) and (max-width: 1199px) {
+  body {
+    width: 100%;
+    min-width: auto;
+    height: auto;
+  }
   header {
     padding-top: 9px;
     min-height: 134.1px;
@@ -162,15 +190,44 @@
     height: 43.2px;
   }
   header #quickmenu .menu-item {
-    width: 54px;
+    /*width: @blockSizeFormated;
+        height: @blockSizeFormated;
+        line-height: @blockSizeFormated;*/
+    padding: 9px 13px;
+    min-width: 54px;
     height: 54px;
-    line-height: 54px;
-    font-size: 27px;
+    font-size: 25px;
     border-radius: 9px;
     -moz-border-radius: 9px;
     -webkit-border-radius: 9px;
   }
   header #quickmenu .menu-item.menu-item-double {
-    width: 97.2px;
+    width: 97px;
+  }
+}
+@media (min-width: 1200px) {
+  body {
+    width: 100%;
+    min-width: auto;
+    height: auto;
+    font-size: 25px;
+  }
+  #storiesContainer .storyContainer .story .panel-heading {
+    font-size: 13px;
+    padding: 10px 10px 2px 10px;
+  }
+  #storiesContainer .storyContainer .story .panel-heading h1,
+  #storiesContainer .storyContainer .story .panel-heading h2,
+  #storiesContainer .storyContainer .story .panel-heading h3,
+  #storiesContainer .storyContainer .story .panel-heading h4,
+  #storiesContainer .storyContainer .story .panel-heading h5 {
+    font-size: 40px;
+  }
+  #storiesContainer .storyContainer .story .panel-heading h1 i,
+  #storiesContainer .storyContainer .story .panel-heading h2 i,
+  #storiesContainer .storyContainer .story .panel-heading h3 i,
+  #storiesContainer .storyContainer .story .panel-heading h4 i,
+  #storiesContainer .storyContainer .story .panel-heading h5 i {
+    font-size: 25px;
   }
 }

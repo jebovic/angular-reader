@@ -1,4 +1,9 @@
-@import url(http://fonts.googleapis.com/css?family=Give+You+Glory);
+@font-face {
+  font-family: 'Give You Glory';
+  font-style: normal;
+  font-weight: 400;
+  src: local('Give You Glory'), local('GiveYouGlory'), url(../fonts/giveyouglory.woff) format('woff');
+}
 /* Base colors */
 /* Special colors */
 /* Font */

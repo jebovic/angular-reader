@@ -4,25 +4,51 @@
 /* XS < 480px */
 @media (max-width: @screen-xs-min) {
     body {
-        min-width: 300px;
+        .reset-body-size();
     }
     header { .responsive-header(0.5); }
     #helpOverlay .helpItem { .responsive-help-item(0.7); }
 }
 /* 480px < S < 767px */
 @media (min-width: @screen-xs-min) and (max-width: @screen-xs-max) {
+    body {
+        .reset-body-size();
+    }
     header { .responsive-header(0.5); }
     #helpOverlay .helpItem { .responsive-help-item(0.7); }
 }
 @media (min-width: @screen-sm-min) and (max-width: @screen-sm-max) {
     body {
-        min-width: @screen-sm-max;
+        .reset-body-size();
     }
     header { .responsive-header(0.7); }
     #helpOverlay .helpItem { .responsive-help-item(0.9); }
 }
 @media (min-width: @screen-md-min) and (max-width: @screen-md-max) {
+    body {
+        .reset-body-size();
+    }
     header { .responsive-header(0.9); }
 }
 @media (min-width: @screen-lg-min) {
+    body {
+        .reset-body-size();
+        font-size: 25px;
+    }
+    #storiesContainer {
+        .storyContainer {
+            .story {
+                .panel-heading {
+                    font-size: 13px;
+                    padding: 10px 10px 2px 10px;
+                    h1,h2,h3,h4,h5 {
+                        font-size: 40px;
+                        i {
+                            font-size: 25px;
+                        }
+                    }
+                }
+            }
+        }
+    }
 }

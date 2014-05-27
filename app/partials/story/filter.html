@@ -1,12 +1,10 @@
-<div class="get-more-modal">
+<div class="filter-modal">
     <div class="modal-header">
         <h2 class="modal-title">Choose your favorites sites</h2>
     </div>
     <div class="modal-body">
-        <div class="btn-group">
-            <button ng-repeat="site in sites" class="btn btn-default btn-sm" ng-click="toggleSite(site.id)" ng-class="{'btn-primary':activeSites.indexOf(site.id) != -1}">
-            <i class="fa" ng-class="getStarClass(site.id)"></i>&nbsp;{{site.title}}
-        </button>
+        <div class="list-group sites-list">
+            <a ng-repeat="site in sites" ng-class="{infavs:activeSites.indexOf(site.id) != -1}" ng-click="toggleSite(site.id)" class="list-group-item"><i class="fa fa-fw" ng-class="getStarClass(site.id)"></i>&nbsp; {{ site.title }}</a>
         </div>
     </div>
     <div class="modal-footer">
