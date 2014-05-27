@@ -3,10 +3,60 @@
 /* Special colors */
 /* Font */
 /* Responsive Functions*/
-@media (max-width: 767px) {
+/* XS < 480px */
+@media (max-width: 480px) {
   body {
-    min-width: 100%;
+    min-width: 300px;
   }
+  header {
+    padding-top: 5px;
+    min-height: 74.5px;
+  }
+  header #logo {
+    padding: 8.5px 10px;
+  }
+  header #logo h1 {
+    font-size: 30px;
+  }
+  header #logo img {
+    width: 24px;
+    height: 24px;
+  }
+  header #counter {
+    border-radius: 18px;
+    -moz-border-radius: 18px;
+    -webkit-border-radius: 18px;
+  }
+  header #counter .block .icon,
+  header #counter .block .count {
+    width: 37.2px;
+    height: 37.2px;
+    line-height: 37.2px;
+    font-size: 18px;
+  }
+  header #counter .block .tooltip {
+    font-size: 12px;
+  }
+  #helpOverlay .helpItem {
+    font-size: 17.5px;
+  }
+  #helpOverlay .helpItem .image {
+    padding: 14px;
+  }
+  #helpOverlay .helpItem#counterHelpBlock {
+    font-size: 14px;
+    padding: 7px;
+  }
+  #helpOverlay .helpItem#swipeHelpBlock {
+    padding: 0 21px 21px 21px;
+    min-height: 200px;
+  }
+  #helpOverlay .helpItem#sitesHelpBlock {
+    padding-top: 7px;
+  }
+}
+/* 480px < S < 767px */
+@media (min-width: 480px) and (max-width: 767px) {
   header {
     padding-top: 5px;
     min-height: 74.5px;
@@ -56,7 +106,7 @@
 }
 @media (min-width: 768px) and (max-width: 991px) {
   body {
-    min-width: 100%;
+    min-width: 991px;
   }
   header {
     padding-top: 7px;
