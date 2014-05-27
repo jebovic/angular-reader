@@ -42,20 +42,17 @@ header #logo img {
   width: 48px;
   height: 48px;
 }
-header #counter {
-  border-radius: 33px;
-  -moz-border-radius: 33px;
-  -webkit-border-radius: 33px;
+header #quickmenu .menu-item {
+  width: 60px;
+  height: 60px;
+  line-height: 60px;
+  font-size: 30px;
+  border-radius: 10px;
+  -moz-border-radius: 10px;
+  -webkit-border-radius: 10px;
 }
-header #counter .block .icon,
-header #counter .block .count {
-  width: 68.2px;
-  height: 68.2px;
-  line-height: 68.2px;
-  font-size: 33px;
-}
-header #counter .block .tooltip {
-  font-size: 22px;
+header #quickmenu .menu-item.menu-item-double {
+  width: 108px;
 }
 header #logo {
   color: #1fb5ac;
@@ -70,33 +67,32 @@ header #logo.zIndex {
   z-index: 9999;
   position: absolute;
 }
-header #counter {
+header #quickmenu {
   overflow: hidden;
+  display: inline-block;
 }
-header #counter .block .icon,
-header #counter .block .count {
+header #quickmenu .menu-item {
   color: #fff;
   display: inline-block;
   vertical-align: middle;
   text-align: center;
+  font-family: 'Give You Glory', cursive;
+  background-color: #4bc3bc;
+  cursor: pointer;
   margin: 0;
   padding: 0;
   float: none;
 }
-header #counter .block .count {
-  font-family: 'Give You Glory', cursive;
-  background-color: #4bc3bc;
-}
-header #counter .block .count:hover,
-header #counter .block .count:active,
-header #counter .block .count:focus {
+header #quickmenu .menu-item:hover,
+header #quickmenu .menu-item:active,
+header #quickmenu .menu-item:focus {
   text-decoration: none;
 }
-header #counter .block .tooltip {
-  font-family: 'Give You Glory', cursive;
-}
-header #counter .block .icon {
+header #quickmenu .menu-item:nth-child(2n+1) {
   background-color: #1fb5ac;
+}
+header #quickmenu .menu-item i {
+  vertical-align: middle;
 }
 /* Main Loader */
 #mainLoader {
@@ -189,6 +185,12 @@ header #counter .block .icon {
 }
 .get-more-modal ul li a:hover {
   color: #1fb5ac;
+}
+/* Tooltips */
+.tooltip {
+  font-family: 'Give You Glory', cursive;
+  font-size: 20px;
+  padding: 10px;
 }
 /* Stories */
 #storiesContainer {

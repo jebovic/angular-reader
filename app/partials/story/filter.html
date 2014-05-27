@@ -1,0 +1,16 @@
+<div class="get-more-modal">
+    <div class="modal-header">
+        <h2 class="modal-title">Choose your favorites sites</h2>
+    </div>
+    <div class="modal-body">
+        <div class="btn-group">
+            <button ng-repeat="site in sites" class="btn btn-default btn-sm" ng-click="toggleSite(site.id)" ng-class="{'btn-primary':activeSites.indexOf(site.id) != -1}">
+            <i class="fa" ng-class="getStarClass(site.id)"></i>&nbsp;{{site.title}}
+        </button>
+        </div>
+    </div>
+    <div class="modal-footer">
+        <button class="btn btn-primary" ng-click="ok()">OK</button>
+        <button class="btn btn-warning" ng-click="cancel()">Cancel</button>
+    </div>
+</div>

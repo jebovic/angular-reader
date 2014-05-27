@@ -19,7 +19,7 @@ angular.module('readerApp.controllers', [])
             { limit: 200, text: "200 stories" }
         ];
         $scope.sites = [];
-        $scope.activeSites = [];
+        $scope.activeSites = cacheService.getData('activeSites') ? angular.fromJson(cacheService.getData('activeSites')) : [];
         $scope.firstLoad = true;
         $scope.templates = {
             'header': { url: 'partials/header.html'},
@@ -55,18 +55,6 @@ angular.module('readerApp.controllers', [])
         $scope.imageExists = function (hash) {
             return hash.length > 0;
         };
-        $scope.toggleSite = function (site) {
-            var toggleIndex = $scope.activeSites.indexOf(site);
-            if (toggleIndex != -1) {
-                $scope.activeSites.splice(toggleIndex, 1);
-            }
-            else {
-                $scope.activeSites.push(site);
-            }
-            $scope.purgeStories();
-            $scope.reload($scope.limit);
-            return true;
-        };
         $scope.loadMore = function () {
             $scope.loading = true;
             this.loadStories();
@@ -81,30 +69,32 @@ angular.module('readerApp.controllers', [])
             return bool ? 'fa-square' : 'fa-square-o';
         };
         $scope.loadStories = function () {
-            var siteIds = [];
-            angular.forEach($scope.activeSites, function (value, key) {
-                siteIds.push(value.id);
-            });
             var cachedStories = cacheService.getData('readStories');
             var readStories = cachedStories ? angular.fromJson(cachedStories) : [];
-            Storie.random({limit: $scope.limit, sites: siteIds.join(',')}, function (response) {
-                angular.forEach(response.stories, function (story, key) {
-                    story.unread = true;
-                    story.animationClass = 'hide';
-                    var storyIndex = readStories.indexOf(story.id);
-                    if (storyIndex != -1) {
-                        story.unread = false;
+            Storie.random(
+                {
+                    limit: $scope.limit,
+                    sites: $scope.activeSites.join(',')
+                },
+                function (response) {
+                    angular.forEach(response.stories, function (story, key) {
+                        story.unread = true;
+                        story.animationClass = 'hide';
+                        var storyIndex = readStories.indexOf(story.id);
+                        if (storyIndex != -1) {
+                            story.unread = false;
+                        }
+                        $scope.stories.push(story);
+                        readStories.push(story.id);
+                    });
+                    cacheService.setData('readStories', readStories);
+                    $scope.loading = false;
+                    if ($scope.firstLoad) {
+                        $scope.showFirst();
                     }
-                    $scope.stories.push(story);
-                    readStories.push(story.id);
-                });
-                cacheService.setData('readStories', readStories);
-                $scope.loading = false;
-                if ($scope.firstLoad) {
-                    $scope.showFirst();
+                    $scope.firstLoad = false;
                 }
-                $scope.firstLoad = false;
-            });
+            );
         };
 
         $scope.nextStory = function () {
@@ -155,10 +145,10 @@ angular.module('readerApp.controllers', [])
         }
 
 
-        $scope.open = function (size) {
+        $scope.openGetMore = function (size) {
             var modalInstance = $modal.open({
                 templateUrl: 'partials/story/get-more.html',
-                controller: "ModalInstanceCtrl",
+                controller: "ModalGetMoreCtrl",
                 size: size,
                 resolve: {
                     limitButtons: function () {
@@ -168,6 +158,30 @@ angular.module('readerApp.controllers', [])
             });
             modalInstance.result.then(function (selectedLimit) {
                 $scope.reload(selectedLimit);
+            }, function () {
+                /*$log.info('Modal dismissed at: ' + new Date());*/
+            });
+        };
+
+        $scope.openCatalog = function (size) {
+            var modalInstance = $modal.open({
+                templateUrl: 'partials/story/filter.html',
+                controller: "ModalCatalogCtrl",
+                size: size,
+                resolve: {
+                    sites: function () {
+                        return $scope.sites;
+                    },
+                    activeSites: function () {
+                        return $scope.activeSites;
+                    }
+                }
+            });
+            modalInstance.result.then(function (activeSites) {
+                $scope.purgeStories();
+                $scope.activeSites = activeSites;
+                $scope.reload($scope.limit);
+                cacheService.setData('activeSites', activeSites);
             }, function () {
                 /*$log.info('Modal dismissed at: ' + new Date());*/
             });
@@ -186,16 +200,42 @@ angular.module('readerApp.controllers', [])
         Site.query({}, function (response) {
             angular.forEach(response.sites, function (value, key) {
                 $scope.sites.push(value);
-                $scope.activeSites.push(value);
             });
         });
     }])
-    .controller('ModalInstanceCtrl', ['$scope', '$modalInstance', 'limitButtons', function ($scope, $modalInstance, limitButtons) {
+    .controller('ModalGetMoreCtrl', ['$scope', '$modalInstance', 'limitButtons', function ($scope, $modalInstance, limitButtons) {
 
         $scope.limitButtons = limitButtons;
 
         $scope.ok = function (selectedLimit) {
             $modalInstance.close(selectedLimit);
+        };
+
+        $scope.cancel = function () {
+            $modalInstance.dismiss('cancel');
+        };
+    }])
+    .controller('ModalCatalogCtrl', ['$scope', '$modalInstance', 'sites', 'activeSites', function ($scope, $modalInstance, sites, activeSites) {
+
+        $scope.sites = sites;
+        $scope.activeSites = activeSites;
+
+        $scope.toggleSite = function (siteId) {
+            var toggleIndex = $scope.activeSites.indexOf(siteId);
+            if (toggleIndex != -1) {
+                $scope.activeSites.splice(toggleIndex, 1);
+            }
+            else {
+                $scope.activeSites.push(siteId);
+            }
+        };
+
+        $scope.getStarClass = function (siteId) {
+            return $scope.activeSites.indexOf(siteId) != -1 ? 'fa-star' : 'fa-star-o';
+        }
+
+        $scope.ok = function () {
+            $modalInstance.close($scope.activeSites);
         };
 
         $scope.cancel = function () {

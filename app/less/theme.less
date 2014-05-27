@@ -35,26 +35,24 @@ header {
             position: absolute;
         }
     }
-    #counter {
+    #quickmenu {
         overflow: hidden;
-        .block {
-            .icon, .count {
-                color: #fff;
-                display:inline-block;
-                vertical-align: middle;
-                text-align: center;
-                .reset();
-            }
-            .count {
-                font-family: @fontFamilyCounter;
-                background-color: @primary;
-                .no-underline();
-            }
-            .tooltip {
-                font-family: @fontFamilyCounter;
-            }
-            .icon {
+        display: inline-block;
+        .menu-item {
+            color: #fff;
+            display:inline-block;
+            vertical-align: middle;
+            text-align: center;
+            font-family: @fontFamilyCounter;
+            background-color: @primary;
+            cursor: pointer;
+            .no-underline();
+            .reset();
+            &:nth-child(2n+1) {
                 background-color: @primaryActive;
+            }
+            i {
+                vertical-align: middle;
             }
         }
     }
@@ -136,6 +134,13 @@ header {
             }
         }
     }
+}
+
+/* Tooltips */
+.tooltip {
+    font-family: @fontFamilyCounter;
+    font-size: 20px;
+    padding: 10px;
 }
 
 /* Stories */

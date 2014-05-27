@@ -32,7 +32,7 @@
     padding-top: unit(10*@scale, px);
     min-height: unit(149*@scale, px);
     #logo { .responsive-logo(@scale); }
-    #counter { .responsive-counter(@scale+0.1); }
+    #quickmenu { .responsive-quickmenu(@scale); }
 }
 .responsive-logo(@scale) {
     padding: unit(17*@scale, px) unit(20*@scale, px);
@@ -44,19 +44,17 @@
         height: unit(48*@scale, px);
     }
 }
-.responsive-counter(@scale) {
-    @blockSize: 62;
+.responsive-quickmenu(@scale) {
+    @blockSize: 60;
     @blockSizeFormated: unit(@blockSize*@scale, px);
-    .border-radius( unit(30*@scale, px) );
-    .block {
-        .icon, .count {
-            width: @blockSizeFormated;
-            height: @blockSizeFormated;
-            line-height: @blockSizeFormated;
-            font-size: unit(30*@scale, px);
-        }
-        .tooltip {
-            font-size: unit(20*@scale, px);
+    .menu-item {
+        width: @blockSizeFormated;
+        height: @blockSizeFormated;
+        line-height: @blockSizeFormated;
+        font-size: unit(30*@scale, px);
+        .border-radius( unit(10*@scale, px) );
+        &.menu-item-double {
+            width: unit(1.8*@blockSize*@scale, px);
         }
     }
 }
@@ -65,7 +63,7 @@
     .image {
         padding: unit(20*@scale,px);
     }
-    &#counterHelpBlock {
+    &#quickmenuHelpBlock {
         font-size: unit(20*@scale,px);
         padding: unit(10*@scale,px);
     }
