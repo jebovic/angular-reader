@@ -1,3 +1,16 @@
+.reset() {
+    margin: 0;
+    padding: 0;
+    float: none;
+}
+.no-underline() {
+    &:hover, &:active, &:focus {
+        text-decoration: none;
+    }
+}
+.unselectable() {
+    -moz-user-select: none; -webkit-user-select: none; -ms-user-select:none; user-select:none;
+}
 .border-radius(@radius: '6px') {
     @rad: unit(@radius,px);
     border-radius: @rad;
@@ -19,7 +32,7 @@
     padding-top: unit(10*@scale, px);
     min-height: unit(149*@scale, px);
     #logo { .responsive-logo(@scale); }
-    #counter { .responsive-counter(@scale); }
+    #counter { .responsive-counter(@scale+0.1); }
 }
 .responsive-logo(@scale) {
     padding: unit(17*@scale, px) unit(20*@scale, px);
@@ -32,18 +45,19 @@
     }
 }
 .responsive-counter(@scale) {
-    height: unit(139*@scale, px);
-    word-spacing: unit(10*@scale, px);
-    padding-right: unit(20*@scale, px);
-    line-height: unit(139*@scale, px);
-    .index {
-        font-size: unit(30*@scale, px);
-    }
-    .delimiter {
-        font-size:  unit(40*@scale, px);
-    }
-    button {
-        font-size:  unit(25*@scale, px);
+    @blockSize: 62;
+    @blockSizeFormated: unit(@blockSize*@scale, px);
+    .border-radius( unit(30*@scale, px) );
+    .block {
+        .icon, .count {
+            width: @blockSizeFormated;
+            height: @blockSizeFormated;
+            line-height: @blockSizeFormated;
+            font-size: unit(30*@scale, px);
+        }
+        .tooltip {
+            font-size: unit(20*@scale, px);
+        }
     }
 }
 .responsive-help-item(@scale) {
@@ -53,7 +67,7 @@
     }
     &#counterHelpBlock {
         font-size: unit(20*@scale,px);
-        padding-top: unit(10*@scale,px);
+        padding: unit(10*@scale,px);
     }
     &#swipeHelpBlock {
         padding: 0 unit(30*@scale,px) unit(30*@scale,px) unit(30*@scale,px);

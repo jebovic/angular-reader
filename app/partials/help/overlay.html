@@ -1,4 +1,4 @@
-<div class="animated {{help.animation.out}} {{help.animation.in}}" id="helpOverlay" ng-style="helpOverlay()" resize>
+<div id="helpOverlay" ng-style="helpOverlay()" resize>
     <div ng-repeat="block in help.blocks" class="helpItem" id="{{block.name}}HelpBlock" ng-style="helpBlockPosition(block.target)">
         <ng-include src="templates.helpBlock.url" ></ng-include>
     </div>

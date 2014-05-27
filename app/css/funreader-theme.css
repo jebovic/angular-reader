@@ -19,6 +19,14 @@ body {
 a {
   cursor: pointer;
 }
+h1,
+h2,
+h3,
+h4,
+h5 {
+  font-family: 'Give You Glory', cursive;
+  text-transform: lowercase;
+}
 /* Header */
 header {
   padding-top: 10px;
@@ -35,19 +43,19 @@ header #logo img {
   height: 48px;
 }
 header #counter {
-  height: 139px;
-  word-spacing: 10px;
-  padding-right: 20px;
-  line-height: 139px;
+  border-radius: 33px;
+  -moz-border-radius: 33px;
+  -webkit-border-radius: 33px;
 }
-header #counter .index {
-  font-size: 30px;
+header #counter .block .icon,
+header #counter .block .count {
+  width: 68.2px;
+  height: 68.2px;
+  line-height: 68.2px;
+  font-size: 33px;
 }
-header #counter .delimiter {
-  font-size: 40px;
-}
-header #counter button {
-  font-size: 25px;
+header #counter .block .tooltip {
+  font-size: 22px;
 }
 header #logo {
   color: #1fb5ac;
@@ -62,20 +70,33 @@ header #logo.zIndex {
   z-index: 9999;
   position: absolute;
 }
-header #counter .index {
+header #counter {
+  overflow: hidden;
+}
+header #counter .block .icon,
+header #counter .block .count {
+  color: #fff;
+  display: inline-block;
   vertical-align: middle;
-  font-family: 'Give You Glory', cursive;
-  color: #4bc3bc;
+  text-align: center;
+  margin: 0;
+  padding: 0;
+  float: none;
 }
-header #counter .delimiter {
+header #counter .block .count {
   font-family: 'Give You Glory', cursive;
-  vertical-align: middle;
+  background-color: #4bc3bc;
 }
-header #counter .btn-group {
-  word-spacing: normal;
+header #counter .block .count:hover,
+header #counter .block .count:active,
+header #counter .block .count:focus {
+  text-decoration: none;
 }
-header #counter button {
+header #counter .block .tooltip {
   font-family: 'Give You Glory', cursive;
+}
+header #counter .block .icon {
+  background-color: #1fb5ac;
 }
 /* Main Loader */
 #mainLoader {
@@ -124,13 +145,50 @@ header #counter button {
   border-color: #1fb5ac;
   color: #fff;
 }
-/* Dropdown */
-.dropdown-menu h3 {
-  margin: 0;
-  padding: 5px 0 0 0;
-  font-size: 1.2em;
-  color: #1fb5ac;
+/* Modals */
+.modal .modal-content {
+  border-radius: 0px;
+  -moz-border-radius: 0px;
+  -webkit-border-radius: 0px;
+}
+.modal .modal-content .modal-header {
+  background-color: #1fb5ac;
   text-align: center;
+}
+.modal .modal-content .modal-header h1,
+.modal .modal-content .modal-header h2,
+.modal .modal-content .modal-header h3,
+.modal .modal-content .modal-header h4 {
+  color: #fff;
+}
+.get-more-modal ul {
+  margin: 0;
+  padding: 0;
+  float: none;
+  list-style: none;
+}
+.get-more-modal ul li {
+  margin: 0;
+  padding: 0;
+  float: none;
+  display: inline-block;
+  width: 50%;
+  text-align: center;
+}
+.get-more-modal ul li a {
+  color: #4bc3bc;
+  display: block;
+  padding: 5px 10px;
+  font-size: 23px;
+  font-family: 'Give You Glory', cursive;
+}
+.get-more-modal ul li a:hover,
+.get-more-modal ul li a:active,
+.get-more-modal ul li a:focus {
+  text-decoration: none;
+}
+.get-more-modal ul li a:hover {
+  color: #1fb5ac;
 }
 /* Stories */
 #storiesContainer {
@@ -145,6 +203,10 @@ header #counter button {
   cursor: url("../img/swipe.png"), auto;
 }
 #storiesContainer .storyContainer .story {
+  -moz-user-select: none;
+  -webkit-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
   background-color: #fff;
   border-radius: 4px;
   -moz-border-radius: 4px;
@@ -159,13 +221,30 @@ header #counter button {
   font-weight: 400;
   background: #fafafa;
   text-transform: uppercase;
-  padding: 10px;
+  padding: 10px 10px 2px 10px;
   border-top-left-radius: 4px;
   border-top-right-radius: 4px;
   -moz-border-top-left-radius: 4px;
   -moz-border-top-right-radius: 4px;
   -webkit-border-top-left-radius: 4px;
   -webkit-border-top-right-radius: 4px;
+}
+#storiesContainer .storyContainer .story .panel-heading h1,
+#storiesContainer .storyContainer .story .panel-heading h2,
+#storiesContainer .storyContainer .story .panel-heading h3,
+#storiesContainer .storyContainer .story .panel-heading h4,
+#storiesContainer .storyContainer .story .panel-heading h5 {
+  margin: 0;
+  padding: 0;
+  float: none;
+  font-size: 20px;
+}
+#storiesContainer .storyContainer .story .panel-heading h1 i,
+#storiesContainer .storyContainer .story .panel-heading h2 i,
+#storiesContainer .storyContainer .story .panel-heading h3 i,
+#storiesContainer .storyContainer .story .panel-heading h4 i,
+#storiesContainer .storyContainer .story .panel-heading h5 i {
+  font-size: 13px;
 }
 #storiesContainer .storyContainer .story .image {
   padding: 10px;

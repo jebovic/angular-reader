@@ -17,6 +17,7 @@ body {
 a {
     cursor: pointer;
 }
+h1, h2, h3, h4, h5 { font-family: @fontSpecial; text-transform: lowercase; }
 
 /* Header */
 header {
@@ -35,20 +36,26 @@ header {
         }
     }
     #counter {
-        .index {
-            vertical-align: middle;
-            font-family: @fontFamilyCounter;
-            color: @primary;
-        }
-        .delimiter {
-            font-family: @fontFamilyCounter;
-            vertical-align: middle;
-        }
-        .btn-group {
-            word-spacing: normal;
-        }
-        button {
-            font-family: @fontFamilyCounter;
+        overflow: hidden;
+        .block {
+            .icon, .count {
+                color: #fff;
+                display:inline-block;
+                vertical-align: middle;
+                text-align: center;
+                .reset();
+            }
+            .count {
+                font-family: @fontFamilyCounter;
+                background-color: @primary;
+                .no-underline();
+            }
+            .tooltip {
+                font-family: @fontFamilyCounter;
+            }
+            .icon {
+                background-color: @primaryActive;
+            }
         }
     }
 }
@@ -96,14 +103,38 @@ header {
     color: #fff;
 }
 
-/* Dropdown */
-.dropdown-menu {
-    h3 {
-        margin: 0;
-        padding: 5px 0 0 0;
-        font-size: 1.2em;
-        color: @primaryActive;
-        text-align: center;
+/* Modals */
+.modal {
+    .modal-content {
+        .border-radius(0px);
+        .modal-header {
+            background-color: @primaryActive;
+            text-align: center;
+            h1, h2, h3, h4 { color: #fff; }
+        }
+    }
+}
+.get-more-modal {
+    ul {
+        .reset();
+        list-style: none;
+        li {
+            .reset();
+            display: inline-block;
+            width: 50%;
+            text-align: center;
+            a {
+                color: @primary;
+                display: block;
+                padding: 5px 10px;
+                font-size: 23px;
+                font-family: @fontSpecial;
+                .no-underline();
+                &:hover {
+                    color: @primaryActive;
+                }
+            }
+        }
     }
 }
 
@@ -118,6 +149,7 @@ header {
         width: 100%;
         cursor: url("../img/swipe.png"), auto;
         .story {
+            .unselectable();
             background-color: #fff;
             .border-radius(4px);
             border: none;
@@ -129,8 +161,15 @@ header {
                 font-weight: 400;
                 background: @grayLight;
                 text-transform: uppercase;
-                padding: 10px;
+                padding: 10px 10px 2px 10px;
                 .border-top-radius(4px);
+                h1,h2,h3,h4,h5 {
+                    .reset();
+                    font-size: 20px;
+                    i {
+                        font-size: 13px;
+                    }
+                }
             }
             .image {
                 padding: 10px;

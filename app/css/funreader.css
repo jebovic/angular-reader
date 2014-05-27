@@ -13,9 +13,6 @@
   font-family: 'Give You Glory', cursive;
   display: block;
 }
-#helpOverlay.fadeOut:not(.ng-animate) {
-  display: none;
-}
 #helpOverlay .helpItem {
   position: absolute;
   border-top: 1px dotted #c7cbd6;
@@ -32,7 +29,7 @@
 }
 #helpOverlay .helpItem#counterHelpBlock {
   font-size: 20px;
-  padding-top: 10px;
+  padding: 10px;
 }
 #helpOverlay .helpItem#swipeHelpBlock {
   padding: 0 30px 30px 30px;
@@ -59,4 +56,16 @@
 #loading-bar-spinner .spinner-icon {
   border-top-color: #4bc3bc;
   border-left-color: #4bc3bc;
+}
+.animate-show {
+  -webkit-transition: all linear 0.3s;
+  transition: all linear 0.3s;
+  opacity: 1;
+}
+.animate-show.ng-hide-add,
+.animate-show.ng-hide-remove {
+  display: block!important;
+}
+.animate-show.ng-hide {
+  opacity: 0;
 }

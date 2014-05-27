@@ -28,7 +28,6 @@ module.exports = function (grunt) {
                         "img/*",
                         "partials/**/*.html",
                         "vendor/bootstrap/dist/css/bootstrap.min.css",
-                        "vendor/animate.css/animate.min.css",
                         "vendor/Font-Awesome/css/font-awesome.min.css",
                         "vendor/angular-loading-bar/build/loading-bar.min.css",
                         "vendor/Font-Awesome/fonts/*"

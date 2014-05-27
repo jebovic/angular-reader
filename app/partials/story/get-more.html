@@ -1,0 +1,12 @@
+<div class="get-more-modal">
+    <div class="modal-header">
+        <h2 class="modal-title">Get more Doonut stories</h2>
+    </div>
+    <div class="modal-body">
+        <ul>
+            <li ng-repeat="button in limitButtons">
+                <a ng-click="ok(button.limit)" >{{button.text}}</a>
+            </li>
+        </ul>
+    </div>
+</div>

@@ -1,22 +1,12 @@
 <header>
     <div id="logo" ng-class="{'zIndex':help.active}"><h1>D<img src="../img/icon48.png" alt="o" width="48" height="48"/><img src="../img/icon48.png" alt="o" width="48" height="48"/>nut<br><small class="pull-right">Reader</small></h1></div>
-    <div id="counter" ng-show="stories.length" class="pull-right" reader-help reader-help-block="counter">
-        <span class="index">{{ showStoryIndex + 1 }}</span>
-        <span class="delimiter">/</span>
-        <!-- Single button -->
-        <div class="btn-group" dropdown is-open="status.isopen">
-            <button type="button" class="btn btn-primary dropdown-toggle">
-                {{ stories.length }}
-            </button>
-            <ul class="dropdown-menu" role="menu">
-                <li><h3>Preload stories</h3></li>
-                <li class="divider"></li>
-                <li ng-repeat="button in limitButtons" ng-class="{'disabled':limit==button.limit}">
-                    <a ng-click="reload(button.limit); status.isopen = !status.isopen;" >{{button.text}}</a>
-                </li>
-            </ul>
+    <div id="counter" ng-show="stories.length" class="pull-right animate-show" reader-help reader-help-block="counter">
+        <div class="block" dropdown>
+            <button ng-click="open('sm')" tooltip-placement="left" tooltip="Click to get more !" class="count btn btn-link">{{ stories.length }}</button><span class="icon" tooltip-placement="left" tooltip="You got {{ stories.length }} Doonut stories"><i class="fa fa-book"></i></span>
         </div>
-
+        <div class="block">
+            <span tooltip-placement="left" tooltip="Currently viewing Doonut storie #{{ showStoryIndex + 1 }}" class="count">{{ showStoryIndex + 1 }}</span><span class="icon"><i class="fa fa-eye"></i></span>
+        </div>
     </div>
     <div class="clearfix"></div>
 </header>

@@ -17,7 +17,6 @@
     "angular-loading-bar": "0.x",
     "jquery": "1.x",
     "bootstrap": "3.x",
-    "animate.css": "3.x",
     "Font-Awesome": "4.x"
   },
   "devDependencies": {

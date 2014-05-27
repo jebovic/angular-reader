@@ -4,9 +4,10 @@
 
 angular.module('readerApp.controllers', [])
     //cacheService.setData('newbie', false);
-    .controller('RandomController', ['$scope', 'Storie', 'Site', '$sce', 'cacheService', function ($scope, Storie, Site, $sce, cacheService) {
+    .controller('RandomController', ['$scope', 'Storie', 'Site', '$sce', 'cacheService', '$modal', function ($scope, Storie, Site, $sce, cacheService, $modal) {
         $scope.loading = true;
         $scope.showStoryIndex = 0;
+        $scope.direction = 'left';
         $scope.movedToNext = false;
         $scope.movedToPrevious = false;
         $scope.limit = 25;
@@ -31,20 +32,12 @@ angular.module('readerApp.controllers', [])
         $scope.help = {
             active: ($scope.isNewbie === true),
             blocks: [],
-            animation: {
-                in: ($scope.isNewbie === true) ? 'fadeIn' : 'hide',
-                out: ''
-            },
             overlayShit: 100,
-            dismiss: function(){
-                $scope.help.animation.out = 'fadeOut';
-                $scope.help.animation.in = '';
+            dismiss: function () {
                 $scope.help.active = false;
                 cacheService.setData('newbie', false);
             },
-            display: function(){
-                $scope.help.animation.out = '';
-                $scope.help.animation.in = 'fadeIn';
+            display: function () {
                 $scope.resizeHelpBlock();
                 $scope.help.active = true;
             }
@@ -52,9 +45,7 @@ angular.module('readerApp.controllers', [])
         $scope.resizeHelpBlock = function () {
             var helpBlock = angular.element('#swipeHelpBlock');
             var activeStory = angular.element('.storyContainer')[$scope.showStoryIndex];
-            console.log('essai');
-            if ( activeStory && helpBlock ) {
-                console.log('ok');
+            if (activeStory && helpBlock) {
                 helpBlock.css({
                     'height': activeStory.offsetHeight + 'px'
                 });
@@ -118,10 +109,10 @@ angular.module('readerApp.controllers', [])
 
         $scope.nextStory = function () {
             var storyIndex = $scope.showStoryIndex;
+            $scope.direction = 'left';
             if ($scope.stories.length != ( storyIndex + 1 )) {
-                $scope.stories[storyIndex].animationClass = "animated fadeOutLeft";
-                $scope.stories[storyIndex + 1].animationClass = "animated fadeInRight";
                 $scope.showStoryIndex = storyIndex + 1;
+                $scope.stories[$scope.showStoryIndex].unread = false;
             }
             if ($scope.stories.length < ( storyIndex + 8 ) && $scope.loading === false) {
                 $scope.loadMore();
@@ -129,11 +120,10 @@ angular.module('readerApp.controllers', [])
         };
         $scope.previousStory = function () {
             var storyIndex = $scope.showStoryIndex;
-            // MARK read
+            $scope.direction = 'right';
             if (storyIndex !== 0) {
-                $scope.stories[storyIndex].animationClass = "animated fadeOutRight";
-                $scope.stories[storyIndex - 1].animationClass = "animated fadeInLeft";
                 $scope.showStoryIndex = storyIndex - 1;
+                $scope.stories[$scope.showStoryIndex].unread = false;
             }
         };
         $scope.navigate = function (event) {
@@ -144,8 +134,7 @@ angular.module('readerApp.controllers', [])
                 $scope.nextStory();
             }
             if (event.keyCode == 72 || event.keyCode == 112) {
-                if ( $scope.help.active )
-                {
+                if ($scope.help.active) {
                     $scope.help.dismiss();
                 } else {
                     $scope.help.display();
@@ -153,7 +142,6 @@ angular.module('readerApp.controllers', [])
             }
         };
         $scope.showFirst = function () {
-            $scope.stories[0].animationClass = "animated fadeInRight";
             $scope.showStoryIndex = 0;
             $scope.resizeHelpBlock();
         };
@@ -161,12 +149,34 @@ angular.module('readerApp.controllers', [])
             $scope.showStoryIndex = $scope.stories.length - 1;
         };
 
-        $scope.purgeStories = function() {
+        $scope.purgeStories = function () {
             $scope.firstLoad = true;
             $scope.stories = [];
         }
 
-        $('body').keydown(function (e) {
+
+        $scope.open = function (size) {
+            var modalInstance = $modal.open({
+                templateUrl: 'partials/story/get-more.html',
+                controller: "ModalInstanceCtrl",
+                size: size,
+                resolve: {
+                    limitButtons: function () {
+                        return $scope.limitButtons;
+                    }
+                }
+            });
+            modalInstance.result.then(function (selectedLimit) {
+                $scope.reload(selectedLimit);
+            }, function () {
+                /*$log.info('Modal dismissed at: ' + new Date());*/
+            });
+        };
+
+
+        /******************************************************************/
+
+        angular.element('body').keydown(function (e) {
             $scope.$apply(function () {
                 $scope.navigate(e);
             })
@@ -179,4 +189,16 @@ angular.module('readerApp.controllers', [])
                 $scope.activeSites.push(value);
             });
         });
+    }])
+    .controller('ModalInstanceCtrl', ['$scope', '$modalInstance', 'limitButtons', function ($scope, $modalInstance, limitButtons) {
+
+        $scope.limitButtons = limitButtons;
+
+        $scope.ok = function (selectedLimit) {
+            $modalInstance.close(selectedLimit);
+        };
+
+        $scope.cancel = function () {
+            $modalInstance.dismiss('cancel');
+        };
     }]);

@@ -22,19 +22,19 @@
     height: 24px;
   }
   header #counter {
-    height: 69.5px;
-    word-spacing: 5px;
-    padding-right: 10px;
-    line-height: 69.5px;
+    border-radius: 18px;
+    -moz-border-radius: 18px;
+    -webkit-border-radius: 18px;
   }
-  header #counter .index {
-    font-size: 15px;
+  header #counter .block .icon,
+  header #counter .block .count {
+    width: 37.2px;
+    height: 37.2px;
+    line-height: 37.2px;
+    font-size: 18px;
   }
-  header #counter .delimiter {
-    font-size: 20px;
-  }
-  header #counter button {
-    font-size: 12.5px;
+  header #counter .block .tooltip {
+    font-size: 12px;
   }
   #helpOverlay .helpItem {
     font-size: 17.5px;
@@ -44,7 +44,7 @@
   }
   #helpOverlay .helpItem#counterHelpBlock {
     font-size: 14px;
-    padding-top: 7px;
+    padding: 7px;
   }
   #helpOverlay .helpItem#swipeHelpBlock {
     padding: 0 21px 21px 21px;
@@ -73,19 +73,19 @@
     height: 33.6px;
   }
   header #counter {
-    height: 97.3px;
-    word-spacing: 7px;
-    padding-right: 14px;
-    line-height: 97.3px;
+    border-radius: 24px;
+    -moz-border-radius: 24px;
+    -webkit-border-radius: 24px;
   }
-  header #counter .index {
-    font-size: 21px;
+  header #counter .block .icon,
+  header #counter .block .count {
+    width: 49.6px;
+    height: 49.6px;
+    line-height: 49.6px;
+    font-size: 24px;
   }
-  header #counter .delimiter {
-    font-size: 28px;
-  }
-  header #counter button {
-    font-size: 17.5px;
+  header #counter .block .tooltip {
+    font-size: 16px;
   }
   #helpOverlay .helpItem {
     font-size: 22.5px;
@@ -95,7 +95,7 @@
   }
   #helpOverlay .helpItem#counterHelpBlock {
     font-size: 18px;
-    padding-top: 9px;
+    padding: 9px;
   }
   #helpOverlay .helpItem#swipeHelpBlock {
     padding: 0 27px 27px 27px;
@@ -121,18 +121,18 @@
     height: 43.2px;
   }
   header #counter {
-    height: 125.1px;
-    word-spacing: 9px;
-    padding-right: 18px;
-    line-height: 125.1px;
+    border-radius: 30px;
+    -moz-border-radius: 30px;
+    -webkit-border-radius: 30px;
   }
-  header #counter .index {
-    font-size: 27px;
+  header #counter .block .icon,
+  header #counter .block .count {
+    width: 62px;
+    height: 62px;
+    line-height: 62px;
+    font-size: 30px;
   }
-  header #counter .delimiter {
-    font-size: 36px;
-  }
-  header #counter button {
-    font-size: 22.5px;
+  header #counter .block .tooltip {
+    font-size: 20px;
   }
 }

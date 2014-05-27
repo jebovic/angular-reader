@@ -12,6 +12,7 @@ angular
         'readerApp.services',
         'readerApp.directives',
         'readerApp.controllers',
+        'readerApp.animation',
         'angular-loading-bar',
         'ui.bootstrap'
     ]).

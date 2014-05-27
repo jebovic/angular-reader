@@ -6,10 +6,10 @@
         <img ng-src="/img/loader.gif" height="128" width="128" />
     </div>
     <div id="storiesContainer" reader-help reader-help-block="swipe">
-        <div ng-repeat="story in stories" class="storyContainer {{ story.animationClass }}" ng-swipe-left="nextStory()" ng-swipe-right="previousStory()">
+        <div ng-hide="showStoryIndex != $index" ng-repeat="story in stories" class="storyContainer animate-show" ng-swipe-left="nextStory()" ng-swipe-right="previousStory()">
             <ng-include src="templates.storyListItem.url" ></ng-include>
         </div>
         <div class="clearfix"></div>
     </div>
 </div>
-<ng-include src="templates.help.url"></ng-include>
+<div ng-include="templates.help.url" ng-show="help.active" class="animate-show" ></div>
