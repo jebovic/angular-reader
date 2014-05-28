@@ -46,6 +46,7 @@ header #logo {
 header #logo h1 {
   padding: 0;
   margin: 0;
+  font-weight: bold;
 }
 header #logo.zIndex {
   z-index: 9999;
@@ -54,14 +55,17 @@ header #logo.zIndex {
 header #quickmenu {
   overflow: hidden;
   display: inline-block;
+  background: rgba(0, 0, 0, 0.5);
+  border-radius: 4px;
+  -moz-border-radius: 4px;
+  -webkit-border-radius: 4px;
 }
 header #quickmenu .menu-item {
-  color: #fff;
+  color: #4bc3bc;
   display: inline-block;
   vertical-align: middle;
   text-align: center;
   font-family: 'Give You Glory', cursive;
-  background-color: #4bc3bc;
   cursor: pointer;
   margin: 0;
   padding: 0;
@@ -71,9 +75,6 @@ header #quickmenu .menu-item:hover,
 header #quickmenu .menu-item:active,
 header #quickmenu .menu-item:focus {
   text-decoration: none;
-}
-header #quickmenu .menu-item:nth-child(2n+1) {
-  background-color: #1fb5ac;
 }
 header #quickmenu .menu-item i {
   vertical-align: middle;
@@ -89,19 +90,9 @@ header #logo img {
   height: 48px;
 }
 header #quickmenu .menu-item {
-  /*width: @blockSizeFormated;
-        height: @blockSizeFormated;
-        line-height: @blockSizeFormated;*/
   padding: 10px 15px;
-  min-width: 60px;
   height: 60px;
   font-size: 27px;
-  border-radius: 10px;
-  -moz-border-radius: 10px;
-  -webkit-border-radius: 10px;
-}
-header #quickmenu .menu-item.menu-item-double {
-  width: 108px;
 }
 /* Main Loader */
 #mainLoader {
@@ -202,6 +193,7 @@ header #quickmenu .menu-item.menu-item-double {
   font-family: 'Give You Glory', cursive;
   font-style: italic;
   color: #c7cbd6;
+  background-color: #fafafa;
 }
 .filter-modal .sites-list a .fa-star {
   color: #e6c511;
@@ -221,6 +213,7 @@ header #quickmenu .menu-item.menu-item-double {
   font-size: 1.2em;
 }
 .filter-modal .sites-list a.infavs {
+  background-color: #fff;
   font-style: normal;
   color: #1fb5ac;
 }
@@ -281,6 +274,7 @@ header #quickmenu .menu-item.menu-item-double {
   padding: 0;
   float: none;
   font-size: 25px;
+  font-weight: bold;
 }
 #storiesContainer .storyContainer .story .panel-heading h1 i,
 #storiesContainer .storyContainer .story .panel-heading h2 i,
@@ -290,12 +284,40 @@ header #quickmenu .menu-item.menu-item-double {
   font-size: 18px;
 }
 #storiesContainer .storyContainer .story .image {
-  padding: 10px;
   text-align: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center center;
+  width: 100%;
+  height: 300px;
 }
 #storiesContainer .storyContainer .story .panel-body {
   padding: 10px;
+  padding-bottom: 35px;
 }
 #storiesContainer .storyContainer .story .panel-body .decoration {
   font-weight: bold;
+}
+/* FavBar */
+#favBar {
+  text-align: center;
+  background: #fff;
+  width: 71px;
+  border-radius: 71px;
+  -moz-border-radius: 71px;
+  -webkit-border-radius: 71px;
+  margin: 0 auto;
+  margin-top: -35px;
+}
+#favBar a {
+  color: #c7cbd6;
+  font-size: 50px;
+}
+#favBar a:hover,
+#favBar a:active,
+#favBar a:focus {
+  text-decoration: none;
+}
+#favBar a i.fa-star {
+  color: #4bc3bc;
 }

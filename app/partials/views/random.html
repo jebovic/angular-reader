@@ -5,9 +5,12 @@
     <div id="mainLoader" class="text-center" style="padding: 30px;" ng-class="{hide:stories.length > 0}">
         <img ng-src="/img/loader.gif" height="128" width="128" />
     </div>
-    <div id="storiesContainer" reader-help reader-help-block="swipe">
+    <div id="storiesContainer" reader-help reader-help-block="swipe" reader-help-nobg>
         <div ng-hide="showStoryIndex != $index" ng-repeat="story in stories" class="storyContainer animate-show" ng-swipe-left="nextStory()" ng-swipe-right="previousStory()">
             <ng-include src="templates.storyListItem.url" ></ng-include>
+            <div id="favBar" ng-show="stories.length">
+                <a ng-click="toggleFav()" tooltip="Add story to your favorites" tooltip-append-to-body="true" tooltip-placement="top"><i class="fa" ng-class="storieInFavs()"></i></a>
+            </div>
         </div>
         <div class="clearfix"></div>
     </div>

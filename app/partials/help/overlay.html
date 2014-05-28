@@ -1,5 +1,5 @@
 <div id="helpOverlay" ng-style="helpOverlay()" resize>
-    <div ng-repeat="block in blocksHelpCenter()" class="helpItem" id="{{block.name}}HelpBlock" ng-style="helpBlockPosition(block.target)">
+    <div ng-repeat="block in blocksHelpCenter()" ng-class="{nobg: !block.bg}" class="helpItem" id="{{block.name}}HelpBlock" ng-style="helpBlockPosition(block.target)">
         <ng-include src="templates.helpBlock.url" ></ng-include>
     </div>
     <div class="dismiss">

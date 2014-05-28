@@ -53,17 +53,9 @@
     @blockSize: 60;
     @blockSizeFormated: floor(unit(@blockSize*@scale, px));
     .menu-item {
-        /*width: @blockSizeFormated;
-        height: @blockSizeFormated;
-        line-height: @blockSizeFormated;*/
         padding: unit(floor(10*@scale), px) unit(floor(15*@scale),px);
-        min-width: @blockSizeFormated;
         height: @blockSizeFormated;
         font-size: unit(ceil(27*@scale), px);
-        .border-radius( unit(10*@scale, px) );
-        &.menu-item-double {
-            width: unit(floor(1.8*@blockSize*@scale), px);
-        }
     }
 }
 .responsive-help-item(@scale) {
@@ -81,5 +73,16 @@
     }
     &#sitesHelpBlock {
         padding-top: unit(10*@scale,px);
+    }
+}
+.responsive-story(@scale) {
+    @imageHeight: 300px;
+    @imageHeightFormated: floor(unit(@imageHeight*@scale, px));
+    .storyContainer {
+        .story {
+            .image {
+                height: @imageHeightFormated;
+            }
+        }
     }
 }

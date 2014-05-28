@@ -43,6 +43,10 @@
 #helpOverlay .helpItem#sitesHelpBlock {
   padding-top: 10px;
 }
+#helpOverlay .helpItem.nobg {
+  border: none;
+  background: none;
+}
 #helpOverlay .dismiss {
   text-align: center;
   width: 100%;

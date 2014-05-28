@@ -29,6 +29,7 @@ header {
         h1 {
             padding: 0;
             margin: 0;
+            font-weight: bold;
         }
         &.zIndex {
             z-index: 9999;
@@ -38,19 +39,17 @@ header {
     #quickmenu {
         overflow: hidden;
         display: inline-block;
+        background: rgba(0,0,0,0.5);
+        .border-radius(4px);
         .menu-item {
-            color: #fff;
+            color: @primary;
             display:inline-block;
             vertical-align: middle;
             text-align: center;
             font-family: @fontFamilyCounter;
-            background-color: @primary;
             cursor: pointer;
             .no-underline();
             .reset();
-            &:nth-child(2n+1) {
-                background-color: @primaryActive;
-            }
             i {
                 vertical-align: middle;
             }
@@ -145,6 +144,7 @@ header {
             font-family: @fontSpecial;
             font-style: italic;
             color: @gray;
+            background-color: @grayLight;
             .fa-star { color: #e6c511; }
             .fa-star-o { color: @gray; }
             small {
@@ -159,7 +159,9 @@ header {
                 }
             }
             &.infavs {
-                font-style: normal; color: @primaryActive;
+                background-color: #fff;
+                font-style: normal;
+                color: @primaryActive;
                 small {
                     color: @grayDark;
                 }
@@ -203,21 +205,44 @@ header {
                 h1,h2,h3,h4,h5 {
                     .reset();
                     font-size: 25px;
+                    font-weight: bold;
                     i {
                         font-size: 18px;
                     }
                 }
             }
             .image {
-                padding: 10px;
                 text-align: center;
+                background-repeat: no-repeat;
+                background-size: cover;
+                background-position: center center;
+                width: 100%;
+                height: 300px;
             }
             .panel-body {
                 padding: 10px;
+                padding-bottom: 35px;
                 .decoration {
                     font-weight: bold;
                 }
             }
+        }
+    }
+}
+/* FavBar */
+#favBar {
+    text-align: center;
+    background: #fff;
+    width: 71px;
+    .border-radius(71px);
+    margin: 0 auto;
+    margin-top: -35px;
+    a {
+        color: @gray;
+        .no-underline();
+        font-size: 50px;
+        i.fa-star {
+            color: @primary;
         }
     }
 }

@@ -7,6 +7,7 @@
         .reset-body-size();
     }
     header { .responsive-header(0.5); }
+    #storiesContainer { .responsive-story(0.6); }
     #helpOverlay .helpItem { .responsive-help-item(0.7); }
 }
 /* 480px < S < 767px */
@@ -15,6 +16,7 @@
         .reset-body-size();
     }
     header { .responsive-header(0.5); }
+    #storiesContainer { .responsive-story(0.6); }
     #helpOverlay .helpItem { .responsive-help-item(0.7); }
 }
 @media (min-width: @screen-sm-min) and (max-width: @screen-sm-max) {
@@ -22,6 +24,7 @@
         .reset-body-size();
     }
     header { .responsive-header(0.7); }
+    #storiesContainer { .responsive-story(0.8); }
     #helpOverlay .helpItem { .responsive-help-item(0.9); }
 }
 @media (min-width: @screen-md-min) and (max-width: @screen-md-max) {
@@ -29,6 +32,7 @@
         .reset-body-size();
     }
     header { .responsive-header(0.9); }
+    #storiesContainer { .responsive-story(0.9); }
 }
 @media (min-width: @screen-lg-min) {
     body {
@@ -36,6 +40,7 @@
         font-size: 25px;
     }
     #storiesContainer {
+        .responsive-story(1.2);
         .storyContainer {
             .story {
                 .panel-heading {

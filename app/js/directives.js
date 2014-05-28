@@ -9,9 +9,11 @@ angular.module('readerApp.directives', [])
             restrict: 'EA',
             link: function( scope, elem, attr ) {
                 var positionTarget = attr.readerHelpTarget ? attr.readerHelpTarget : '#' + attr.id;
+                var bgActive = attr.readerHelpNobg == '' ? false : true;
                 helpCenter.blocks.push( {
                     name:attr.readerHelpBlock,
-                    target: positionTarget
+                    target: positionTarget,
+                    bg: bgActive
                 } );
             }
         }

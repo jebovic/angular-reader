@@ -52,9 +52,14 @@ angular.module('readerApp.controllers', [])
         /* Sites init */
         $scope.sites = [];
         $scope.activeSites = cacheService.getData('activeSites') ? angular.fromJson(cacheService.getData('activeSites')) : [];
-        /* Functions */
+        /* Utils functions */
         $scope.imageExists = function (hash) {
             return hash.length > 0;
+        };
+        $scope.storyImageStyle = function(imageId) {
+            return {
+                'background-image': 'url(http://reader.loc/uploads/images/'+imageId+')'
+            }
         };
         $scope.isRead = function (bool) {
             return bool ? 'fa-square' : 'fa-square-o';
@@ -63,6 +68,7 @@ angular.module('readerApp.controllers', [])
             $scope.loading = true;
             this.loadStories();
         };
+        /* Loading functions */
         $scope.reload = function (limit) {
             $scope.loading = true;
             $scope.limit = limit;
@@ -99,6 +105,32 @@ angular.module('readerApp.controllers', [])
                     $scope.firstLoad = false;
                 }
             );
+        };
+        /* Favs management */
+        $scope.favStoryIds = cacheService.getData('favStoryIds') ? angular.fromJson(cacheService.getData('favStoryIds')) : [];
+        $scope.favStories = cacheService.getData('favStories') ? angular.fromJson(cacheService.getData('favStories')) : [];
+        $scope.toggleFav = function() {
+            var currentStory = $scope.stories[$scope.showStoryIndex];
+            var currentStoryId = currentStory.id;
+            var storyIndex = $scope.favStoryIds.indexOf(currentStoryId);
+            if (storyIndex != -1) {
+                $scope.favStoryIds.splice(storyIndex, 1);
+                $scope.favStories.splice(storyIndex, 1);
+            }
+            else {
+                $scope.favStoryIds.push(currentStoryId);
+                $scope.favStories.push(currentStory);
+            }
+            cacheService.setData('favStoryIds', $scope.favStoryIds);
+            cacheService.setData('favStories', $scope.favStories);
+        };
+        $scope.storieInFavs = function() {
+            if ( $scope.stories.length )
+            {
+                var currentStoryId = $scope.stories[$scope.showStoryIndex].id;
+                var storyIndex = $scope.favStoryIds.indexOf(currentStoryId);
+                return storyIndex != -1 ? 'fa-star' : 'fa-star-o';
+            }
         };
         /* Stories navigation */
         $scope.nextStory = function () {
