@@ -46,4 +46,18 @@ angular.module('readerApp.services', ['ngResource'])
                 storageService.remove(key);
             }
         };
+    }])
+    .factory('helpCenter', ['cacheService',function(cacheService){
+        return {
+            active: false,
+            blocks: [],
+            overlayShift: 100,
+            dismiss: function () {
+                this.active = false;
+                cacheService.setData('newbie', false);
+            },
+            display: function () {
+                this.active = true;
+            }
+        };
     }]);

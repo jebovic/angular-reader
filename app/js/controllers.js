@@ -4,23 +4,19 @@
 
 angular.module('readerApp.controllers', [])
     //cacheService.setData('newbie', false);
-    .controller('RandomController', ['$scope', 'Storie', 'Site', '$sce', 'cacheService', '$modal', function ($scope, Storie, Site, $sce, cacheService, $modal) {
+    .controller('RandomController', ['$scope', 'Storie', 'Site', '$sce', 'cacheService', 'helpCenter', '$modal', function ($scope, Storie, Site, $sce, cacheService, helpCenter, $modal) {
+        /******************************************************************
+         * Configuration & Initialization
+         ******************************************************************/
         $scope.loading = true;
-        $scope.showStoryIndex = 0;
-        $scope.direction = 'left';
-        $scope.movedToNext = false;
-        $scope.movedToPrevious = false;
-        $scope.limit = 25;
-        $scope.stories = [];
+        $scope.firstLoad = true;
+        $scope.isNewbie = cacheService.getData('newbie') ? cacheService.getData('newbie') : true;
         $scope.limitButtons = [
             { limit: 25, text: "25 stories" },
             { limit: 50, text: "50 stories" },
             { limit: 100, text: "100 stories" },
             { limit: 200, text: "200 stories" }
         ];
-        $scope.sites = [];
-        $scope.activeSites = cacheService.getData('activeSites') ? angular.fromJson(cacheService.getData('activeSites')) : [];
-        $scope.firstLoad = true;
         $scope.templates = {
             'header': { url: 'partials/header.html'},
             'settings': { url: 'partials/menu/settings.html'},
@@ -28,32 +24,40 @@ angular.module('readerApp.controllers', [])
             'helpBlock': { url: 'partials/help/block.html'},
             'storyListItem': {url: 'partials/story/list-item.html'}
         };
-        $scope.isNewbie = cacheService.getData('newbie') ? cacheService.getData('newbie') : true;
-        $scope.help = {
-            active: ($scope.isNewbie === true),
-            blocks: [],
-            overlayShit: 100,
-            dismiss: function () {
-                $scope.help.active = false;
-                cacheService.setData('newbie', false);
-            },
-            display: function () {
-                $scope.resizeHelpBlock();
-                $scope.help.active = true;
-            }
+
+        /******************************************************************
+         * Help center
+         ******************************************************************/
+        $scope.activeHelpCenter = function(){
+            helpCenter.display();
         };
-        $scope.resizeHelpBlock = function () {
-            var helpBlock = angular.element('#swipeHelpBlock');
-            var activeStory = angular.element('.storyContainer')[$scope.showStoryIndex];
-            if (activeStory && helpBlock) {
-                helpBlock.css({
-                    'height': activeStory.offsetHeight + 'px'
-                });
-            } else {
-            }
+        $scope.dismissHelpCenter = function(){
+            helpCenter.dismiss();
         };
+        $scope.isActiveHelpCenter = function(){
+            return helpCenter.active;
+        };
+        $scope.blocksHelpCenter = function(){
+            return helpCenter.blocks;
+        };
+
+        /******************************************************************
+         * Reading center
+         ******************************************************************/
+        /* Stories init */
+        $scope.showStoryIndex = 0;
+        $scope.direction = 'left';
+        $scope.limit = 25;
+        $scope.stories = [];
+        /* Sites init */
+        $scope.sites = [];
+        $scope.activeSites = cacheService.getData('activeSites') ? angular.fromJson(cacheService.getData('activeSites')) : [];
+        /* Functions */
         $scope.imageExists = function (hash) {
             return hash.length > 0;
+        };
+        $scope.isRead = function (bool) {
+            return bool ? 'fa-square' : 'fa-square-o';
         };
         $scope.loadMore = function () {
             $scope.loading = true;
@@ -65,8 +69,9 @@ angular.module('readerApp.controllers', [])
             $scope.loadStories();
             $scope.showStoryIndex = 0;
         };
-        $scope.isRead = function (bool) {
-            return bool ? 'fa-square' : 'fa-square-o';
+        $scope.purgeStories = function () {
+            $scope.firstLoad = true;
+            $scope.stories = [];
         };
         $scope.loadStories = function () {
             var cachedStories = cacheService.getData('readStories');
@@ -79,7 +84,6 @@ angular.module('readerApp.controllers', [])
                 function (response) {
                     angular.forEach(response.stories, function (story, key) {
                         story.unread = true;
-                        story.animationClass = 'hide';
                         var storyIndex = readStories.indexOf(story.id);
                         if (storyIndex != -1) {
                             story.unread = false;
@@ -96,13 +100,13 @@ angular.module('readerApp.controllers', [])
                 }
             );
         };
-
+        /* Stories navigation */
         $scope.nextStory = function () {
             var storyIndex = $scope.showStoryIndex;
             $scope.direction = 'left';
             if ($scope.stories.length != ( storyIndex + 1 )) {
+                $scope.stories[storyIndex].unread = false;
                 $scope.showStoryIndex = storyIndex + 1;
-                $scope.stories[$scope.showStoryIndex].unread = false;
             }
             if ($scope.stories.length < ( storyIndex + 8 ) && $scope.loading === false) {
                 $scope.loadMore();
@@ -112,39 +116,20 @@ angular.module('readerApp.controllers', [])
             var storyIndex = $scope.showStoryIndex;
             $scope.direction = 'right';
             if (storyIndex !== 0) {
+                $scope.stories[storyIndex].unread = false;
                 $scope.showStoryIndex = storyIndex - 1;
-                $scope.stories[$scope.showStoryIndex].unread = false;
-            }
-        };
-        $scope.navigate = function (event) {
-            if (event.keyCode == 37) {
-                $scope.previousStory();
-            }
-            if (event.keyCode == 39) {
-                $scope.nextStory();
-            }
-            if (event.keyCode == 72 || event.keyCode == 112) {
-                if ($scope.help.active) {
-                    $scope.help.dismiss();
-                } else {
-                    $scope.help.display();
-                }
             }
         };
         $scope.showFirst = function () {
             $scope.showStoryIndex = 0;
-            $scope.resizeHelpBlock();
         };
         $scope.showLast = function () {
             $scope.showStoryIndex = $scope.stories.length - 1;
         };
 
-        $scope.purgeStories = function () {
-            $scope.firstLoad = true;
-            $scope.stories = [];
-        }
-
-
+        /******************************************************************
+         * Modals
+         ******************************************************************/
         $scope.openGetMore = function (size) {
             var modalInstance = $modal.open({
                 templateUrl: 'partials/story/get-more.html',
@@ -187,21 +172,43 @@ angular.module('readerApp.controllers', [])
             });
         };
 
-
-        /******************************************************************/
-
+        /******************************************************************
+         * Keyboard shortcuts
+         ******************************************************************/
+        $scope.keyboard = function (event) {
+            if (event.keyCode == 37) {
+                $scope.previousStory();
+            }
+            if (event.keyCode == 39) {
+                $scope.nextStory();
+            }
+            if (event.keyCode == 72 || event.keyCode == 112) {
+                if ( $scope.isActiveHelpCenter() ) {
+                    $scope.dismissHelpCenter();
+                } else {
+                    $scope.activeHelpCenter();
+                }
+            }
+        };
         angular.element('body').keydown(function (e) {
             $scope.$apply(function () {
-                $scope.navigate(e);
+                $scope.keyboard(e);
             })
         });
 
+        /******************************************************************
+         * Page init
+         ******************************************************************/
+        /* Load stories*/
         $scope.loadMore();
+        /* Get sites from catalog */
         Site.query({}, function (response) {
             angular.forEach(response.sites, function (value, key) {
                 $scope.sites.push(value);
             });
         });
+        /* Help center init */
+        if ( $scope.isNewbie === true ) { $scope.activeHelpCenter(); }
     }])
     .controller('ModalGetMoreCtrl', ['$scope', '$modalInstance', 'limitButtons', function ($scope, $modalInstance, limitButtons) {
 
@@ -216,10 +223,8 @@ angular.module('readerApp.controllers', [])
         };
     }])
     .controller('ModalCatalogCtrl', ['$scope', '$modalInstance', 'sites', 'activeSites', function ($scope, $modalInstance, sites, activeSites) {
-
         $scope.sites = sites;
         $scope.activeSites = activeSites;
-
         $scope.toggleSite = function (siteId) {
             var toggleIndex = $scope.activeSites.indexOf(siteId);
             if (toggleIndex != -1) {
@@ -229,15 +234,12 @@ angular.module('readerApp.controllers', [])
                 $scope.activeSites.push(siteId);
             }
         };
-
         $scope.getStarClass = function (siteId) {
             return $scope.activeSites.indexOf(siteId) != -1 ? 'fa-star' : 'fa-star-o';
         }
-
         $scope.ok = function () {
             $modalInstance.close($scope.activeSites);
         };
-
         $scope.cancel = function () {
             $modalInstance.dismiss('cancel');
         };

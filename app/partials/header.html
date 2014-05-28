@@ -3,7 +3,7 @@
     <div id="quickmenu" class="pull-right animate-show" reader-help reader-help-block="quickmenu">
         <button ng-show="stories.length" ng-click="openGetMore('sm')" tooltip-append-to-body="true" tooltip-placement="bottom" tooltip="Click to get more !" class="menu-item menu-item-double btn btn-link">{{ stories.length }} <i class="fa fa-book"></i></button>
         <span ng-show="stories.length" tooltip-append-to-body="true" tooltip-placement="bottom" tooltip="Currently viewing Doonut storie #{{ showStoryIndex + 1 }}" class="menu-item menu-item-double">{{ showStoryIndex + 1 }} <i class="fa fa-eye"></i></span>
-        <a class="menu-item" ng-click="help.display()" tooltip-append-to-body="true" tooltip-placement="bottom" tooltip="Need help ? Just ask !"><i class="fa fa-question"></i></a>
+        <a class="menu-item" ng-click="activeHelpCenter()" tooltip-append-to-body="true" tooltip-placement="bottom" tooltip="Need help ? Just ask !"><i class="fa fa-question"></i></a>
         <a class="menu-item" ng-click="openCatalog('')" tooltip-append-to-body="true" tooltip-placement="bottom" tooltip="Make your own catalog"><i class="fa fa-star"></i></a>
     </div>
     <div class="clearfix"></div>

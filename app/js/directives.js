@@ -4,19 +4,19 @@
 
 
 angular.module('readerApp.directives', [])
-    .directive('readerHelp', ['$rootScope', function ($rootScope) {
+    .directive('readerHelp', ['helpCenter', function (helpCenter) {
         return {
             restrict: 'EA',
             link: function( scope, elem, attr ) {
                 var positionTarget = attr.readerHelpTarget ? attr.readerHelpTarget : '#' + attr.id;
-                scope.help.blocks.push( {
+                helpCenter.blocks.push( {
                     name:attr.readerHelpBlock,
                     target: positionTarget
                 } );
             }
         }
     }])
-    .directive('resize', ['$window',function ($window) {
+    .directive('resize', ['$window','helpCenter',function ($window,helpCenter) {
         return function (scope, element) {
             var w = angular.element($window);
             scope.getWindowDimensions = function () {
@@ -31,10 +31,10 @@ angular.module('readerApp.directives', [])
                     var newHeight = Math.max(newValue.h, bodyElem.offsetHeight);
                     var newWidth = Math.max(newValue.w, bodyElem.offsetWidth);
                     return {
-                        'height': (newHeight + scope.help.overlayShit) + 'px',
-                        'width': (newWidth + 2*scope.help.overlayShit) + 'px',
-                        'top': - scope.help.overlayShit + 'px',
-                        'left': - scope.help.overlayShit + 'px'
+                        'height': (newHeight + helpCenter.overlayShift) + 'px',
+                        'width': (newWidth + 2*helpCenter.overlayShift) + 'px',
+                        'top': - helpCenter.overlayShift + 'px',
+                        'left': - helpCenter.overlayShift + 'px'
                     };
                 };
 
@@ -44,8 +44,8 @@ angular.module('readerApp.directives', [])
                         return {
                             'height': storyContainer.offsetHeight + 'px',
                             'width': storyContainer.offsetWidth + 'px',
-                            'top': (storyContainer.offsetTop + scope.help.overlayShit) + 'px',
-                            'left': (storyContainer.offsetLeft + scope.help.overlayShit) + 'px'
+                            'top': (storyContainer.offsetTop + helpCenter.overlayShift) + 'px',
+                            'left': (storyContainer.offsetLeft + helpCenter.overlayShift) + 'px'
                         };
                     } else {
                         return '';
