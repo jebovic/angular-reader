@@ -145,9 +145,25 @@ header {
             font-family: @fontSpecial;
             font-style: italic;
             color: @gray;
-            &.infavs { font-style: normal; color: @primaryActive;}
             .fa-star { color: #e6c511; }
             .fa-star-o { color: @gray; }
+            small {
+                color: @gray;
+                display: block;
+                padding: 0 0 0 30px;
+                font-family: @fontFamily;
+                font-style: italic;
+                font-size: 0.8em;
+                i {
+                    font-size: 1.2em;
+                }
+            }
+            &.infavs {
+                font-style: normal; color: @primaryActive;
+                small {
+                    color: @grayDark;
+                }
+            }
         }
     }
 }

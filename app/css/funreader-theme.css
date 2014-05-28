@@ -203,15 +203,29 @@ header #quickmenu .menu-item.menu-item-double {
   font-style: italic;
   color: #c7cbd6;
 }
-.filter-modal .sites-list a.infavs {
-  font-style: normal;
-  color: #1fb5ac;
-}
 .filter-modal .sites-list a .fa-star {
   color: #e6c511;
 }
 .filter-modal .sites-list a .fa-star-o {
   color: #c7cbd6;
+}
+.filter-modal .sites-list a small {
+  color: #c7cbd6;
+  display: block;
+  padding: 0 0 0 30px;
+  font-family: 'Helvetica Neue', Arial, sans-serif;
+  font-style: italic;
+  font-size: 0.8em;
+}
+.filter-modal .sites-list a small i {
+  font-size: 1.2em;
+}
+.filter-modal .sites-list a.infavs {
+  font-style: normal;
+  color: #1fb5ac;
+}
+.filter-modal .sites-list a.infavs small {
+  color: #b0b5b9;
 }
 /* Tooltips */
 .tooltip {

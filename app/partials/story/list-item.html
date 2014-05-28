@@ -1,6 +1,7 @@
 <div class="story panel">
     <div class="panel-heading">
         <h2><i class="fa" ng-class="isRead(story.unread)" style="color: #{{story.site.color}};"></i>&nbsp;{{ story.site.title }}</h2>
+
     </div>
     <div class="image" ng-if="story.image.length > 0"><img ng-src="http://reader.loc/api/uploads/images/{{story.image}}" alt=""/></div>
     <div class="panel-body">

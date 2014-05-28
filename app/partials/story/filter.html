@@ -4,7 +4,10 @@
     </div>
     <div class="modal-body">
         <div class="list-group sites-list">
-            <a ng-repeat="site in sites" ng-class="{infavs:activeSites.indexOf(site.id) != -1}" ng-click="toggleSite(site.id)" class="list-group-item"><i class="fa fa-fw" ng-class="getStarClass(site.id)"></i>&nbsp; {{ site.title }}</a>
+            <a ng-repeat="site in sites" ng-class="{infavs:activeSites.indexOf(site.id) != -1}" ng-click="toggleSite(site.id)" class="list-group-item">
+                <i class="fa fa-fw" ng-class="getStarClass(site.id)"></i>&nbsp; {{ site.title }}
+                <small><span ng-repeat="category in site.categories"><i class="fa fa-tags"></i>&nbsp;{{category.name}}{{$last ? '' : ', '}}</span></small>
+            </a>
         </div>
     </div>
     <div class="modal-footer">
