@@ -12,8 +12,9 @@
 @media (max-width: 480px) {
   body {
     width: 100%;
-    min-width: auto;
+    min-width: initial;
     height: auto;
+    min-width: 320px;
   }
   header {
     padding-top: 5px;
@@ -34,8 +35,14 @@
     height: 30px;
     font-size: 14px;
   }
+  header #page-title h2 {
+    font-size: 15px;
+  }
   #storiesContainer .storyContainer .story .image {
     height: 180px;
+  }
+  #storiesContainer .storyContainer .story h4 {
+    font-size: 21px;
   }
   #helpOverlay .helpItem {
     font-size: 17.5px;
@@ -59,7 +66,7 @@
 @media (min-width: 480px) and (max-width: 767px) {
   body {
     width: 100%;
-    min-width: auto;
+    min-width: initial;
     height: auto;
   }
   header {
@@ -81,8 +88,14 @@
     height: 30px;
     font-size: 14px;
   }
+  header #page-title h2 {
+    font-size: 15px;
+  }
   #storiesContainer .storyContainer .story .image {
     height: 180px;
+  }
+  #storiesContainer .storyContainer .story h4 {
+    font-size: 21px;
   }
   #helpOverlay .helpItem {
     font-size: 17.5px;
@@ -105,7 +118,7 @@
 @media (min-width: 768px) and (max-width: 991px) {
   body {
     width: 100%;
-    min-width: auto;
+    min-width: initial;
     height: auto;
   }
   header {
@@ -127,8 +140,14 @@
     height: 42px;
     font-size: 19px;
   }
+  header #page-title h2 {
+    font-size: 21px;
+  }
   #storiesContainer .storyContainer .story .image {
     height: 240px;
+  }
+  #storiesContainer .storyContainer .story h4 {
+    font-size: 28px;
   }
   #helpOverlay .helpItem {
     font-size: 22.5px;
@@ -151,7 +170,7 @@
 @media (min-width: 992px) and (max-width: 1199px) {
   body {
     width: 100%;
-    min-width: auto;
+    min-width: initial;
     height: auto;
   }
   header {
@@ -173,19 +192,28 @@
     height: 54px;
     font-size: 25px;
   }
+  header #page-title h2 {
+    font-size: 27px;
+  }
   #storiesContainer .storyContainer .story .image {
     height: 270px;
+  }
+  #storiesContainer .storyContainer .story h4 {
+    font-size: 31px;
   }
 }
 @media (min-width: 1200px) {
   body {
     width: 100%;
-    min-width: auto;
+    min-width: initial;
     height: auto;
     font-size: 25px;
   }
   #storiesContainer .storyContainer .story .image {
     height: 360px;
+  }
+  #storiesContainer .storyContainer .story h4 {
+    font-size: 42px;
   }
   #storiesContainer .storyContainer .story .panel-heading {
     font-size: 13px;
@@ -196,13 +224,16 @@
   #storiesContainer .storyContainer .story .panel-heading h3,
   #storiesContainer .storyContainer .story .panel-heading h4,
   #storiesContainer .storyContainer .story .panel-heading h5 {
-    font-size: 40px;
+    font-size: 35px;
   }
   #storiesContainer .storyContainer .story .panel-heading h1 i,
   #storiesContainer .storyContainer .story .panel-heading h2 i,
   #storiesContainer .storyContainer .story .panel-heading h3 i,
   #storiesContainer .storyContainer .story .panel-heading h4 i,
   #storiesContainer .storyContainer .story .panel-heading h5 i {
+    font-size: 25px;
+  }
+  #storiesContainer .storyContainer .story .panel-heading small {
     font-size: 25px;
   }
 }

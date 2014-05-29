@@ -1,10 +1,13 @@
 <div class="story panel">
     <div class="panel-heading">
-        <h2><i class="fa" ng-class="isRead(story.unread)" style="color: #{{story.site.color}};"></i>&nbsp;{{ story.site.title }}</h2>
+        <h3 class="pull-left"><i class="fa" ng-class="readingCenter.story.isRead(story.unread)" style="color: #{{story.site.color}};"></i>&nbsp;{{ story.site.title }}</h3>
+        <div class="pull-right"><small><i class="fa fa-eye"></i> <em>{{ readingCenter.story.currentIndex + 1 }}</em> / {{ readingCenter.stories.length }}</small></div>
+        <div class="clearfix"></div>
     </div>
-    <div class="image" ng-if="story.image.length > 0" ng-style="storyImageStyle(story.image)"></div>
+    <div class="image" ng-if="story.image.length > 0" ng-style="readingCenter.story.imageStyle(story.image)"></div>
     <div class="panel-body">
         <div id="storyContent{{ story.id }}" class="text">
+            <h4 ng-bind-html="story.title" ng-if="story.title.length > 0"></h4>
             <p ng-bind-html="story.text"></p>
         </div>
     </div>

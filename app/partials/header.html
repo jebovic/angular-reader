@@ -1,10 +1,17 @@
 <header>
-    <div id="logo" ng-class="{'zIndex':help.active}"><h1>D<img src="../img/icon48.png" alt="o" width="48" height="48"/><img src="../img/icon48.png" alt="o" width="48" height="48"/>nut<br><small class="pull-right">Reader</small></h1></div>
-    <div id="quickmenu" class="pull-right animate-show" reader-help reader-help-block="quickmenu">
-        <span ng-show="stories.length" tooltip-append-to-body="true" title="Currently viewing Doonut storie #{{ showStoryIndex + 1 }}" class="menu-item menu-item-double">{{ showStoryIndex + 1 }} <i class="fa fa-eye"></i></span>
-        <button ng-show="stories.length" ng-click="openGetMore('sm')" title="Click to get more !" class="menu-item menu-item-double btn btn-link">{{ stories.length }} <i class="fa fa-download"></i></button>
-        <a class="menu-item" ng-click="openCatalog('')" title="Make your own catalog"><i class="fa fa-book"></i></a>
-        <a class="menu-item" ng-click="activeHelpCenter()" title="Need help ? Just ask !"><i class="fa fa-question"></i></a>
+    <div id="logo" ng-class="{'zIndex':helpCenter.active}"><h1>D<img src="../img/icon48.png" alt="o" width="48" height="48"/><img src="../img/icon48.png" alt="o" width="48" height="48"/>nut<br><small class="pull-right">Reader</small></h1></div>
+    <div class="pull-right text-right">
+        <div id="quickmenu" class="animate-show" reader-help reader-help-block="quickmenu">
+            <a ng-class="{active: quickMenuActive == 'ordered'}" class="menu-item" href="#/ordered" title="Most recent!"><i class="fa fa-signal"></i></a>
+            <a ng-class="{active: quickMenuActive == 'random'}" class="menu-item" href="#/random" title="Randomize it!"><i class="fa fa-random"></i></a>
+            <a ng-class="{active: quickMenuActive == 'favorites'}" class="menu-item" href="#/favorites" title="Go to favorite stories"><i class="fa fa-star-o"></i></a>
+            <a ng-class="{disabled:!modals}" class="menu-item" ng-click="modals.openCatalog('')" title="Make your own catalog"><i class="fa fa-book"></i></a>
+            <a ng-class="{disabled:!modals}" ng-click="modals.openGetMore('sm')" title="Get more Doonut stories" class="menu-item"><i class="fa fa-download"></i></a>
+            <a class="menu-item" ng-click="helpCenter.display()" title="Need help ? Just ask !"><i class="fa fa-question"></i></a>
+        </div>
+        <div id="page-title">
+            <h2>{{ title }}</h2>
+        </div>
     </div>
     <div class="clearfix"></div>
 </header>

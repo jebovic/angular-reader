@@ -18,7 +18,7 @@ body {
 a {
     cursor: pointer;
 }
-h1, h2, h3, h4, h5 { font-family: @fontSpecial; text-transform: lowercase; }
+h1, h2, h3, h4, h5 { font-family: @fontSpecial; text-transform: lowercase; font-weight: bold; }
 
 /* Header */
 header {
@@ -29,7 +29,6 @@ header {
         h1 {
             padding: 0;
             margin: 0;
-            font-weight: bold;
         }
         &.zIndex {
             z-index: 9999;
@@ -39,8 +38,6 @@ header {
     #quickmenu {
         overflow: hidden;
         display: inline-block;
-        background: rgba(0,0,0,0.5);
-        .border-radius(4px);
         .menu-item {
             color: @primary;
             display:inline-block;
@@ -53,6 +50,24 @@ header {
             i {
                 vertical-align: middle;
             }
+            &:hover {
+                color: @primaryActive;
+            }
+            &.active {
+                color: @black;
+            }
+            &.disabled {
+                color: @gray;
+                cursor: default;
+            }
+        }
+    }
+    #page-title {
+        padding-right: 10px;
+        h2 {
+            .reset();
+            padding-top: 5px;
+            margin-top: 5px;
         }
     }
     .responsive-header(1);
@@ -209,6 +224,10 @@ header {
                     i {
                         font-size: 18px;
                     }
+                }
+                small {
+                    font-style: italic;
+                    font-size: 18px;
                 }
             }
             .image {

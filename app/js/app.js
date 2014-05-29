@@ -8,6 +8,7 @@ angular
         'ngSanitize',
         'ngTouch',
         'ngAnimate',
+        'readerApp.config',
         'readerApp.filters',
         'readerApp.services',
         'readerApp.directives',
@@ -17,7 +18,9 @@ angular
         'ui.bootstrap'
     ]).
     config(['$routeProvider', '$compileProvider', function ($routeProvider, $compileProvider) {
-        $routeProvider.when('/random', {templateUrl: 'partials/views/random.html', controller: 'RandomController'});
+        $routeProvider.when('/ordered', {templateUrl: 'partials/story/layout.html', controller: 'OrderedController'});
+        $routeProvider.when('/favorites', {templateUrl: 'partials/story/layout.html', controller: 'FavsController'});
+        $routeProvider.when('/random', {templateUrl: 'partials/story/layout.html', controller: 'RandomController'});
         $routeProvider.otherwise({redirectTo: '/random'});
         $compileProvider.imgSrcSanitizationWhitelist(/^\s*(https?|chrome-extension):/);
     }])

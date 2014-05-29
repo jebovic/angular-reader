@@ -1,8 +1,8 @@
 <div id="helpOverlay" ng-style="helpOverlay()" resize>
-    <div ng-repeat="block in blocksHelpCenter()" ng-class="{nobg: !block.bg}" class="helpItem" id="{{block.name}}HelpBlock" ng-style="helpBlockPosition(block.target)">
-        <ng-include src="templates.helpBlock.url" ></ng-include>
+    <div ng-repeat="block in helpCenter.getBlocks()" ng-class="{nobg: !block.bg}" class="helpItem" id="{{block.name}}HelpBlock" ng-style="helpBlockPosition(block.target)">
+        <ng-include src="readerConfig.templates.helpBlock.url" ></ng-include>
     </div>
     <div class="dismiss">
-        <button class="btn btn-lg btn-primary" ng-click="dismissHelpCenter()">Got it !</button>
+        <button class="btn btn-lg btn-primary" ng-click="helpCenter.dismiss()">Got it !</button>
     </div>
 </div>

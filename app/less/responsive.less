@@ -5,6 +5,7 @@
 @media (max-width: @screen-xs-min) {
     body {
         .reset-body-size();
+        min-width: 320px;
     }
     header { .responsive-header(0.5); }
     #storiesContainer { .responsive-story(0.6); }
@@ -47,10 +48,13 @@
                     font-size: 13px;
                     padding: 10px 10px 2px 10px;
                     h1,h2,h3,h4,h5 {
-                        font-size: 40px;
+                        font-size: 35px;
                         i {
                             font-size: 25px;
                         }
+                    }
+                    small {
+                        font-size: 25px;
                     }
                 }
             }

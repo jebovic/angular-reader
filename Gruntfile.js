@@ -65,6 +65,7 @@ module.exports = function (grunt) {
                     ],
                     'build-webapp/js/<%= pkg.name %>.min.js': [
                         "app/js/app.js",
+                        "app/js/config.js",
                         "app/js/services.js",
                         "app/js/controllers.js",
                         "app/js/filters.js",
@@ -76,7 +77,7 @@ module.exports = function (grunt) {
         },
         cssmin : {
             css:{
-                src: 'app/css/*.css',
+                src: ['app/css/funreader.css', 'app/css/funreader-theme.css', 'app/css/funreader-responsive.css'],
                 dest: 'build-webapp/css/<%= pkg.name %>.min.css'
             }
         },
