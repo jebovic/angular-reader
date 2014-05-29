@@ -25,7 +25,7 @@
     "shelljs": "^0.2.6"
   },
   "scripts": {
-    "postinstall": "bower install && grunt build-webapp",
+    "postinstall": "bower install && grunt build-webapp-prod",
     "start": "http-server -p 8000",
     "test": "karma start test/karma.conf.js",
     "update-webdriver": "webdriver-manager update",
