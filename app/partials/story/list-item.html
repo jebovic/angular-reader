@@ -1,7 +1,7 @@
 <div class="story panel">
     <div class="panel-heading">
-        <h3 class="pull-left"><i class="fa" ng-class="readingCenter.story.isRead(story.unread)" style="color: #{{story.site.color}};"></i>&nbsp;{{ story.site.title }}</h3>
-        <div class="pull-right"><small><i class="fa fa-eye"></i> <em>{{ readingCenter.story.currentIndex + 1 }}</em> / {{ readingCenter.stories.length }}</small></div>
+        <h3 class="pull-left"><i class="fa" ng-class="readingCenter.story.isRead(story.unread)" ></i>&nbsp;{{ story.site.title }}</h3>
+        <div class="pull-right"><small><em>{{ readingCenter.story.currentIndex + 1 }}</em> / {{ readingCenter.stories.length }}</small></div>
         <div class="clearfix"></div>
     </div>
     <div class="image" ng-if="story.image.length > 0" ng-style="readingCenter.story.imageStyle(story.image)"></div>

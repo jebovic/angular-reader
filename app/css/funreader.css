@@ -54,17 +54,17 @@
   top: 500px;
 }
 #loading-bar .bar {
-  background: #4bc3bc;
+  background: #f14b11;
 }
 #loading-bar .peg {
-  -moz-box-shadow: #4bc3bc 1px 0 6px 1px;
-  -ms-box-shadow: #4bc3bc 1px 0 6px 1px;
-  -webkit-box-shadow: #4bc3bc 1px 0 6px 1px;
-  box-shadow: #4bc3bc 1px 0 6px 1px;
+  -moz-box-shadow: #f14b11 1px 0 6px 1px;
+  -ms-box-shadow: #f14b11 1px 0 6px 1px;
+  -webkit-box-shadow: #f14b11 1px 0 6px 1px;
+  box-shadow: #f14b11 1px 0 6px 1px;
 }
 #loading-bar-spinner .spinner-icon {
-  border-top-color: #4bc3bc;
-  border-left-color: #4bc3bc;
+  border-top-color: #f14b11;
+  border-left-color: #f14b11;
 }
 .animate-show {
   -webkit-transition: all linear 0.3s;

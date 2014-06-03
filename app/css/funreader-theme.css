@@ -10,7 +10,7 @@
 /* Responsive Functions*/
 body {
   color: #afaebc;
-  background-color: #f1f2f7;
+  background-color: #ffffff;
   font-size: 16px;
   font-family: 'Helvetica Neue', Arial, sans-serif;
   width: 800px;
@@ -19,7 +19,7 @@ body {
   overflow-x: hidden;
 }
 ::selection {
-  background: #4bc3bc;
+  background: #f14b11;
   color: #fff;
 }
 a {
@@ -40,7 +40,7 @@ header {
   min-height: 149px;
 }
 header #logo {
-  color: #1fb5ac;
+  color: #dc420d;
   float: left;
   font-family: 'Give You Glory', cursive;
 }
@@ -57,7 +57,7 @@ header #quickmenu {
   display: inline-block;
 }
 header #quickmenu .menu-item {
-  color: #4bc3bc;
+  color: #f14b11;
   display: inline-block;
   vertical-align: middle;
   text-align: center;
@@ -76,7 +76,7 @@ header #quickmenu .menu-item i {
   vertical-align: middle;
 }
 header #quickmenu .menu-item:hover {
-  color: #1fb5ac;
+  color: #dc420d;
 }
 header #quickmenu .menu-item.active {
   color: #32323a;
@@ -147,8 +147,8 @@ header #page-title h2 {
 }
 .btn-primary,
 .btn-primary[disabled] {
-  background-color: #4bc3bc;
-  border-color: #4bc3bc;
+  background-color: #f14b11;
+  border-color: #f14b11;
   color: #fff;
 }
 .btn-primary:hover,
@@ -156,8 +156,8 @@ header #page-title h2 {
 .btn-primary:active,
 .btn-primary.active,
 .open .dropdown-toggle.btn-primary {
-  background-color: #1fb5ac;
-  border-color: #1fb5ac;
+  background-color: #dc420d;
+  border-color: #dc420d;
   color: #fff;
 }
 /* Modals */
@@ -167,7 +167,7 @@ header #page-title h2 {
   -webkit-border-radius: 0px;
 }
 .modal .modal-content .modal-header {
-  background-color: #1fb5ac;
+  background-color: #dc420d;
   text-align: center;
 }
 .modal .modal-content .modal-header h1,
@@ -191,7 +191,7 @@ header #page-title h2 {
   text-align: center;
 }
 .get-more-modal ul li a {
-  color: #4bc3bc;
+  color: #f14b11;
   display: block;
   padding: 5px 10px;
   font-size: 23px;
@@ -203,7 +203,7 @@ header #page-title h2 {
   text-decoration: none;
 }
 .get-more-modal ul li a:hover {
-  color: #1fb5ac;
+  color: #dc420d;
 }
 .filter-modal .sites-list a {
   -webkit-transition: all linear 0.4s;
@@ -234,7 +234,7 @@ header #page-title h2 {
 .filter-modal .sites-list a.infavs {
   background-color: #fff;
   font-style: normal;
-  color: #1fb5ac;
+  color: #dc420d;
 }
 .filter-modal .sites-list a.infavs small {
   color: #b0b5b9;
@@ -271,18 +271,19 @@ header #page-title h2 {
   margin-bottom: 0;
 }
 #storiesContainer .storyContainer .story .panel-heading {
-  border-color: #eff2f7;
+  border-color: #f14b11;
   font-size: 18px;
   font-weight: 400;
-  background: #fafafa;
+  background: #f14b11;
   text-transform: uppercase;
   padding: 10px 10px 2px 10px;
-  border-top-left-radius: 4px;
-  border-top-right-radius: 4px;
-  -moz-border-top-left-radius: 4px;
-  -moz-border-top-right-radius: 4px;
-  -webkit-border-top-left-radius: 4px;
-  -webkit-border-top-right-radius: 4px;
+  color: #fff;
+  border-top-left-radius: 0px;
+  border-top-right-radius: 0px;
+  -moz-border-top-left-radius: 0px;
+  -moz-border-top-right-radius: 0px;
+  -webkit-border-top-left-radius: 0px;
+  -webkit-border-top-right-radius: 0px;
 }
 #storiesContainer .storyContainer .story .panel-heading h1,
 #storiesContainer .storyContainer .story .panel-heading h2,
@@ -303,8 +304,9 @@ header #page-title h2 {
   font-size: 18px;
 }
 #storiesContainer .storyContainer .story .panel-heading small {
-  font-style: italic;
   font-size: 18px;
+  font-family: 'Give You Glory', cursive;
+  font-weight: bold;
 }
 #storiesContainer .storyContainer .story .image {
   text-align: center;
@@ -342,5 +344,5 @@ header #page-title h2 {
   text-decoration: none;
 }
 #favBar a i.fa-star {
-  color: #4bc3bc;
+  color: #f14b11;
 }

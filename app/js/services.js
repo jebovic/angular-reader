@@ -104,7 +104,7 @@ angular.module('readerApp.services', ['ngResource'])
             }
         };
         contentProvider.story.isRead = function (bool) {
-            return bool ? 'fa-square' : 'fa-square-o';
+            return bool ? 'fa-eye' : 'fa-check-square';
         };
 
         contentProvider.story.load = function () {
