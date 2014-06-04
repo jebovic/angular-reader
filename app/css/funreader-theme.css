@@ -9,8 +9,8 @@
 /* Font */
 /* Responsive Functions*/
 body {
-  color: #afaebc;
-  background-color: #ffffff;
+  color: #585a5e;
+  background-color: #f7f7f7;
   font-size: 16px;
   font-family: 'Helvetica Neue', Arial, sans-serif;
   width: 800px;
@@ -19,7 +19,7 @@ body {
   overflow-x: hidden;
 }
 ::selection {
-  background: #f14b11;
+  background: #6bc5fa;
   color: #fff;
 }
 a {
@@ -33,6 +33,7 @@ h5 {
   font-family: 'Give You Glory', cursive;
   text-transform: lowercase;
   font-weight: bold;
+  color: #585a5e;
 }
 /* Header */
 header {
@@ -40,24 +41,27 @@ header {
   min-height: 149px;
 }
 header #logo {
-  color: #dc420d;
   float: left;
   font-family: 'Give You Glory', cursive;
 }
 header #logo h1 {
   padding: 0;
   margin: 0;
+  color: #6bc5fa;
 }
 header #logo.zIndex {
   z-index: 9999;
   position: absolute;
+}
+header #logo small {
+  color: #585a5e;
 }
 header #quickmenu {
   overflow: hidden;
   display: inline-block;
 }
 header #quickmenu .menu-item {
-  color: #f14b11;
+  color: #6bc5fa;
   display: inline-block;
   vertical-align: middle;
   text-align: center;
@@ -76,7 +80,7 @@ header #quickmenu .menu-item i {
   vertical-align: middle;
 }
 header #quickmenu .menu-item:hover {
-  color: #dc420d;
+  color: #3d9ff8;
 }
 header #quickmenu .menu-item.active {
   color: #32323a;
@@ -141,14 +145,14 @@ header #page-title h2 {
 .btn-default:active,
 .btn-default.active,
 .open .dropdown-toggle.btn-default {
-  background-color: #b0b5b9;
-  border-color: #b0b5b9;
+  background-color: #585a5e;
+  border-color: #585a5e;
   color: #fff;
 }
 .btn-primary,
 .btn-primary[disabled] {
-  background-color: #f14b11;
-  border-color: #f14b11;
+  background-color: #6bc5fa;
+  border-color: #6bc5fa;
   color: #fff;
 }
 .btn-primary:hover,
@@ -156,8 +160,8 @@ header #page-title h2 {
 .btn-primary:active,
 .btn-primary.active,
 .open .dropdown-toggle.btn-primary {
-  background-color: #dc420d;
-  border-color: #dc420d;
+  background-color: #3d9ff8;
+  border-color: #3d9ff8;
   color: #fff;
 }
 /* Modals */
@@ -167,7 +171,7 @@ header #page-title h2 {
   -webkit-border-radius: 0px;
 }
 .modal .modal-content .modal-header {
-  background-color: #dc420d;
+  background-color: #3d9ff8;
   text-align: center;
 }
 .modal .modal-content .modal-header h1,
@@ -191,7 +195,7 @@ header #page-title h2 {
   text-align: center;
 }
 .get-more-modal ul li a {
-  color: #f14b11;
+  color: #6bc5fa;
   display: block;
   padding: 5px 10px;
   font-size: 23px;
@@ -203,7 +207,7 @@ header #page-title h2 {
   text-decoration: none;
 }
 .get-more-modal ul li a:hover {
-  color: #dc420d;
+  color: #3d9ff8;
 }
 .filter-modal .sites-list a {
   -webkit-transition: all linear 0.4s;
@@ -212,7 +216,7 @@ header #page-title h2 {
   font-family: 'Give You Glory', cursive;
   font-style: italic;
   color: #c7cbd6;
-  background-color: #fafafa;
+  background-color: #f7f7f7;
 }
 .filter-modal .sites-list a .fa-star {
   color: #e6c511;
@@ -234,10 +238,10 @@ header #page-title h2 {
 .filter-modal .sites-list a.infavs {
   background-color: #fff;
   font-style: normal;
-  color: #dc420d;
+  color: #3d9ff8;
 }
 .filter-modal .sites-list a.infavs small {
-  color: #b0b5b9;
+  color: #585a5e;
 }
 /* Tooltips */
 .tooltip {
@@ -271,10 +275,10 @@ header #page-title h2 {
   margin-bottom: 0;
 }
 #storiesContainer .storyContainer .story .panel-heading {
-  border-color: #f14b11;
+  border-color: #6bc5fa;
   font-size: 18px;
   font-weight: 400;
-  background: #f14b11;
+  background: #6bc5fa;
   text-transform: uppercase;
   padding: 10px 10px 2px 10px;
   color: #fff;
@@ -295,6 +299,7 @@ header #page-title h2 {
   float: none;
   font-size: 25px;
   font-weight: bold;
+  color: #fff;
 }
 #storiesContainer .storyContainer .story .panel-heading h1 i,
 #storiesContainer .storyContainer .story .panel-heading h2 i,
@@ -344,5 +349,5 @@ header #page-title h2 {
   text-decoration: none;
 }
 #favBar a i.fa-star {
-  color: #f14b11;
+  color: #6bc5fa;
 }
