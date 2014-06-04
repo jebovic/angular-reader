@@ -35,7 +35,6 @@ angular.module('readerApp.controllers', [])
 
         /* Page rendering */
         $scope.favCenter.load();
-        $scope.readingCenter.site.load();
     }])
     .controller('RandomController', ['$scope', 'cacheService', 'readerConfig', 'helpCenter', 'readingCenter', 'readerModals', 'readerNavigation', 'favCenter', function ($scope, cacheService, readerConfig, helpCenter, readingCenter, readerModals, readerNavigation, favCenter){
         /* Load dependencies */
