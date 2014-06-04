@@ -21,7 +21,7 @@ angular
         $routeProvider.when('/ordered', {templateUrl: 'partials/story/layout.html', controller: 'OrderedController'});
         $routeProvider.when('/favorites', {templateUrl: 'partials/story/layout.html', controller: 'FavsController'});
         $routeProvider.when('/random', {templateUrl: 'partials/story/layout.html', controller: 'RandomController'});
-        $routeProvider.otherwise({redirectTo: '/random'});
+        $routeProvider.otherwise({redirectTo: '/ordered'});
         $compileProvider.imgSrcSanitizationWhitelist(/^\s*(https?|chrome-extension):/);
     }])
     .config(['cfpLoadingBarProvider', function(cfpLoadingBarProvider) {
