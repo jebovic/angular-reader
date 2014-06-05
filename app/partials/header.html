@@ -9,6 +9,7 @@
             <a tooltip="Get more Doonut stories" tooltip-placement="bottom" ng-class="{disabled:!modals}" ng-click="modals.openGetMore('sm')" title="Get more Doonut stories" class="menu-item"><i class="fa fa-download"></i></a>
             <a tooltip="Need help ? Just ask !" tooltip-placement="bottom" class="menu-item" ng-click="helpCenter.display()" title="Need help ? Just ask !"><i class="fa fa-question"></i></a>
         </div>
+        <div ng-include="readerConfig.templates.menu.user.url"></div>
         <div id="page-title">
             <h2>{{ title }}</h2>
         </div>

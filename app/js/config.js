@@ -19,7 +19,10 @@ angular.module('readerApp.config', [])
                 'header': { url: 'partials/header.html'},
                 'help': { url: 'partials/help/overlay.html'},
                 'helpBlock': { url: 'partials/help/block.html'},
-                'storyListItem': {url: 'partials/story/list-item.html'}
+                'storyListItem': {url: 'partials/story/list-item.html'},
+                'menu': {
+                    'user': {url: 'partials/menu/user.html'}
+                }
             },
             stories: {
                 defaultLimit: 25

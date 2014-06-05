@@ -66,6 +66,7 @@ module.exports = function (grunt) {
                     'build-webapp/js/<%= pkg.name %>.min.js': [
                         "app/js/app.js",
                         "app/js/config.js",
+                        "app/js/api.js",
                         "app/js/services.js",
                         "app/js/controllers.js",
                         "app/js/filters.js",

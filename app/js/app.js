@@ -10,6 +10,7 @@ angular
         'ngAnimate',
         'readerApp.config',
         'readerApp.filters',
+        'readerApp.api',
         'readerApp.services',
         'readerApp.directives',
         'readerApp.controllers',

@@ -3,7 +3,74 @@
 /* Controllers */
 
 angular.module('readerApp.controllers', [])
-    .controller('OrderedController', ['$scope', 'cacheService', 'readerConfig', 'helpCenter', 'readingCenter', 'readerModals', 'readerNavigation', 'favCenter', function ($scope, cacheService, readerConfig, helpCenter, readingCenter, readerModals, readerNavigation, favCenter){
+    .controller('OrderedController', ['$scope', 'cacheService', 'readerConfig', 'helpCenter', 'readingCenter', 'readerModals', 'readerNavigation', 'favCenter', 'UserAPI', function ($scope, cacheService, readerConfig, helpCenter, readingCenter, readerModals, readerNavigation, favCenter, UserAPI){
+        /* User */
+        $scope.userProfile = undefined;
+        $scope.hasUserProfile = false;
+        $scope.isSignedIn = false;
+        $scope.immediateFailed = false;
+
+        $scope.disconnect = function() {
+
+            /*UserAPI.disconnect().then(function() {
+                $scope.userProfile = undefined;
+                $scope.hasUserProfile = false;
+                $scope.isSignedIn = false;
+                $scope.immediateFailed = true;
+                //$scope.renderSignIn();
+            });*/
+        };
+
+        $scope.signedIn = function(profile) {
+            console.log(profile);
+            $scope.isSignedIn = true;
+            $scope.userProfile = profile;
+            $scope.hasUserProfile = true;
+        };
+
+        $scope.signIn = function(authResult) {
+            $scope.$apply(function() {
+                $scope.processAuth(authResult);
+            });
+        };
+
+        $scope.processAuth = function(authResult) {
+            $scope.immediateFailed = true;
+            if ($scope.isSignedIn) {
+                return 0;
+            }
+            if (authResult['access_token']) {
+                $scope.immediateFailed = false;
+                // Successfully authorized, create session
+                gapi.auth.setToken(authResult);
+                gapi.client.load('plus', 'v1', function() {
+                    var request = gapi.client.plus.people.get({userId: 'me'});
+                    request.execute($scope.signedIn);
+                });
+                /*UserAPI.signIn(authResult).then( function( response ){
+                    console.log(response);
+                });*/
+            } else if (authResult['error']) {
+                if (authResult['error'] == 'immediate_failed') {
+                    $scope.immediateFailed = true;
+                } else {
+                    console.log('Error:' + authResult['error']);
+                }
+            }
+        };
+
+        $scope.renderSignIn = function() {
+            gapi.signin.render('myGsignin', {
+                'callback': $scope.signIn,
+                'clientid': "826340305331-cq525g9v91m0hr7d7m6a05lsnuqo0gjn.apps.googleusercontent.com",
+                //'requestvisibleactions': Conf.requestvisibleactions,
+                'scope': 'https://www.googleapis.com/auth/plus.login',
+                'theme': 'dark',
+                'cookiepolicy': 'single_host_origin',
+                'accesstype': 'offline'
+            });
+        }
+
         /* Load dependencies */
         $scope.readerConfig = readerConfig;
         $scope.helpCenter = helpCenter.init();
@@ -17,9 +84,13 @@ angular.module('readerApp.controllers', [])
         $scope.quickMenuActive = "ordered";
 
         /* Page rendering */
-        $scope.readingCenter.story.purge();
-        $scope.readingCenter.story.loadOrdered();
-        $scope.readingCenter.site.load();
+        $scope.start = function() {
+            $scope.renderSignIn();
+            $scope.readingCenter.story.purge();
+            $scope.readingCenter.story.loadOrdered();
+            $scope.readingCenter.site.load();
+        };
+        $scope.start();
     }])
     .controller('FavsController', ['$scope', 'cacheService', 'readerConfig', 'helpCenter', 'readingCenter', 'readerModals', 'readerNavigation', 'favCenter', function ($scope, cacheService, readerConfig, helpCenter, readingCenter, readerModals, readerNavigation, favCenter){
         /* Load dependencies */

@@ -5,20 +5,6 @@
 // Demonstrate how to register services
 // In this case it is a simple value service.
 angular.module('readerApp.services', ['ngResource'])
-    .factory('Storie', ['$resource','readerConfig',
-        function ($resource, readerConfig) {
-            return $resource( readerConfig.getApiUrl() +'/stories', {limit: '@limit', sites: '@sites'}, {
-                query: {method: 'GET', params: {limit: 10, sites: []}},
-                random: {url: readerConfig.getApiUrl() +'/stories/random', method: 'GET', params: {limit: 10, sites: []}},
-                ordered: {url: readerConfig.getApiUrl() +'/stories/ordered', method: 'GET', params: {limit: 10, offset:0, sites: []}}
-            });
-        }])
-    .factory('Site', ['$resource', 'readerConfig',
-        function ($resource, readerConfig) {
-            return $resource(readerConfig.getApiUrl() + '/sites', {}, {
-                query: {method: 'GET', params: {}}
-            });
-        }])
     .factory('storageService', function () {
         return {
             get: function (key) {
@@ -68,7 +54,7 @@ angular.module('readerApp.services', ['ngResource'])
             }
         };
     }])
-    .factory('readingCenter', ['readerConfig', 'cacheService', 'Storie', 'Site', function(readerConfig, cacheService, Storie, Site){
+    .factory('readingCenter', ['readerConfig', 'cacheService', 'DataProvider', function(readerConfig, cacheService, DataProvider){
         var contentProvider = {};
         contentProvider.init = function(context){
             this.context = context;
@@ -83,7 +69,7 @@ angular.module('readerApp.services', ['ngResource'])
         contentProvider.site = {};
         contentProvider.site.load = function(){
             var $that = contentProvider;
-            Site.query({}, function (response) {
+            DataProvider.site.query({}, function (response) {
                 angular.forEach(response.sites, function (value) {
                     $that.sites.push(value);
                 });
@@ -123,7 +109,7 @@ angular.module('readerApp.services', ['ngResource'])
             $that.loading = true;
             var cachedStories = cacheService.getData('readStories');
             var readStories = cachedStories ? angular.fromJson(cachedStories) : [];
-            Storie.random(
+            DataProvider.story.random(
                 {
                     limit: $that.story.limit,
                     sites: $that.activeSites.join(',')
@@ -152,7 +138,7 @@ angular.module('readerApp.services', ['ngResource'])
             $that.loading = true;
             var cachedStories = cacheService.getData('readStories');
             var readStories = cachedStories ? angular.fromJson(cachedStories) : [];
-            Storie.ordered(
+            DataProvider.story.ordered(
                 {
                     limit: $that.story.limit,
                     sites: $that.activeSites.join(','),
