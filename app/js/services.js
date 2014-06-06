@@ -54,7 +54,7 @@ angular.module('readerApp.services', ['ngResource'])
             }
         };
     }])
-    .factory('readingCenter', ['readerConfig', 'cacheService', 'DataProvider', function(readerConfig, cacheService, DataProvider){
+    .factory('readingCenter', ['readerConfig', 'cacheService', 'dataProvider', function(readerConfig, cacheService, dataProvider){
         var contentProvider = {};
         contentProvider.init = function(context){
             this.context = context;
@@ -69,7 +69,7 @@ angular.module('readerApp.services', ['ngResource'])
         contentProvider.site = {};
         contentProvider.site.load = function(){
             var $that = contentProvider;
-            DataProvider.site.query({}, function (response) {
+            dataProvider.site.query({}, function (response) {
                 angular.forEach(response.sites, function (value) {
                     $that.sites.push(value);
                 });
@@ -109,7 +109,7 @@ angular.module('readerApp.services', ['ngResource'])
             $that.loading = true;
             var cachedStories = cacheService.getData('readStories');
             var readStories = cachedStories ? angular.fromJson(cachedStories) : [];
-            DataProvider.story.random(
+            dataProvider.story.random(
                 {
                     limit: $that.story.limit,
                     sites: $that.activeSites.join(',')
@@ -138,7 +138,7 @@ angular.module('readerApp.services', ['ngResource'])
             $that.loading = true;
             var cachedStories = cacheService.getData('readStories');
             var readStories = cachedStories ? angular.fromJson(cachedStories) : [];
-            DataProvider.story.ordered(
+            dataProvider.story.ordered(
                 {
                     limit: $that.story.limit,
                     sites: $that.activeSites.join(','),
@@ -222,7 +222,7 @@ angular.module('readerApp.services', ['ngResource'])
             }
         };
     }])
-    .factory('readerNavigation', ['helpCenter', 'readingCenter', function(helpCenter, readingCenter){
+    .factory('readerNavigation', ['helpCenter', 'readingCenter','$rootScope', function(helpCenter, readingCenter,$rootScope){
         var navigation = {};
         navigation.story = {};
         /* Stories navigation */
@@ -266,10 +266,10 @@ angular.module('readerApp.services', ['ngResource'])
                 }
             }
         };
-        navigation.init = function($scope){
+        navigation.init = function(){
             var $nav = this;
             angular.element('body').keydown(function (e) {
-                $scope.$apply(function () {
+                $rootScope.$apply(function () {
                     $nav.keyboard(e);
                 })
             });
@@ -293,8 +293,8 @@ angular.module('readerApp.services', ['ngResource'])
                 $that.favStories.splice(storyIndex, 1);
             }
             else {
-                $that.favStoryIds.push(currentStoryId);
-                $that.favStories.push(currentStory);
+                $that.favStoryIds.unshift(currentStoryId);
+                $that.favStories.unshift(currentStory);
             }
             cacheService.setData('favStoryIds', $that.favStoryIds);
             cacheService.setData('favStories', $that.favStories);

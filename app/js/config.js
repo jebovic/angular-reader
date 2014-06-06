@@ -26,6 +26,14 @@ angular.module('readerApp.config', [])
             },
             stories: {
                 defaultLimit: 25
+            },
+            googlePlus: {
+                'clientid': "826340305331-cq525g9v91m0hr7d7m6a05lsnuqo0gjn.apps.googleusercontent.com",
+                'scope': 'https://www.googleapis.com/auth/plus.login',
+                'theme': 'dark',
+                'width': 'iconOnly',
+                'cookiepolicy': 'single_host_origin',
+                'accesstype': 'offline'
             }
         }
     }]);

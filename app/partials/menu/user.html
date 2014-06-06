@@ -1,1 +1,4 @@
-<a class="menu-item" href="#"><img src="{{userProfile.image.url}}" alt="{{userProfile.displayName}}"/>{{userProfile.displayName}}</a>
+<a tooltip="Click to disconnect" tooltip-placement="bottom" ng-click="googlePlus.disconnect()" ng-show="googlePlus.user.hasProfile" class="user-profile" class="menu-item"><img ng-src="{{googlePlus.user.profile.image.url}}" alt="{{googlePlus.user.profile.displayName}}"/></a>
+<div ng-init="googlePlus.user.renderSignIn()" id="signin" ng-hide="googlePlus.user.hasProfile" class="menu-item">
+    <span id="googlePlusSignin"></span>
+</div>

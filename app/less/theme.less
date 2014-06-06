@@ -41,6 +41,7 @@ header {
     #quickmenu {
         overflow: hidden;
         display: inline-block;
+        vertical-align: middle;
         .menu-item {
             color: @primary;
             display:inline-block;
@@ -57,12 +58,29 @@ header {
                 color: @primaryActive;
             }
             &.active {
-                color: @black;
+                color: @grayDark;
             }
             &.disabled {
                 color: @gray;
                 cursor: default;
             }
+        }
+    }
+    #usermenu {
+        display: inline-block;
+        vertical-align: middle;
+        .user-profile {
+            overflow: hidden;
+            display: inline-block;
+            .border-radius(18px);
+            img {
+                display: block;
+                width: 36px;
+                height: 36px;
+            }
+        }
+        #signin {
+            padding-top: 10px;
         }
     }
     #page-title {

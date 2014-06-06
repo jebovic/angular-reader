@@ -59,6 +59,7 @@ header #logo small {
 header #quickmenu {
   overflow: hidden;
   display: inline-block;
+  vertical-align: middle;
 }
 header #quickmenu .menu-item {
   color: #6bc5fa;
@@ -83,11 +84,30 @@ header #quickmenu .menu-item:hover {
   color: #3d9ff8;
 }
 header #quickmenu .menu-item.active {
-  color: #32323a;
+  color: #585a5e;
 }
 header #quickmenu .menu-item.disabled {
   color: #c7cbd6;
   cursor: default;
+}
+header #usermenu {
+  display: inline-block;
+  vertical-align: middle;
+}
+header #usermenu .user-profile {
+  overflow: hidden;
+  display: inline-block;
+  border-radius: 18px;
+  -moz-border-radius: 18px;
+  -webkit-border-radius: 18px;
+}
+header #usermenu .user-profile img {
+  display: block;
+  width: 36px;
+  height: 36px;
+}
+header #usermenu #signin {
+  padding-top: 10px;
 }
 header #page-title {
   padding-right: 10px;
